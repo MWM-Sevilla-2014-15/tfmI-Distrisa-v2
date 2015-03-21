@@ -25,9 +25,7 @@ charset=UTF-8"/>
             <div id="site_content">
                 <div id="content">
                     <div class="content_item">
-                        <div style="height:300px">
-                            <ui:insert name="cuerpo">Cuerpo</ui:insert>
-                        </div>
+                        <ui:insert name="cuerpo">Cuerpo</ui:insert>
                     </div>
                 </div>
             </div>

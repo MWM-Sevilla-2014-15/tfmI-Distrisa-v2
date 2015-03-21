@@ -1,54 +1,77 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        <h:head>
-            <title>#{msgs.register}</title>
-        </h:head>
-        <h:body>
-            <h:form>
-                <h1>
-                    <h:outputText value="Registro de usuario"/>
-                </h1>
-               <h:panelGrid columns="3">
-                    <h:outputLabel value="#{msgs.name} :" for="name"/>
-                    <h:inputText id="name" value="#{registerBean.usuario.nombre}" title="name" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                    <h:message for="name" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.surname} :" for="surname"/>
-                    <h:inputText id="surname" value="#{registerBean.usuario.apellidos}" title="Surname" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                    <h:message for="surname" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.email} :" for="email"/>
-                    <h:inputText id="email" value="#{registerBean.usuario.email}" title="Email" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}">
-                        <f:validator validatorId="emailValidator" />
-                    </h:inputText>
-                    <h:message for="email" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.birth} :" for="birthDay"/>
-                    <h:inputText id="birthDay" value="#{registerBean.usuario.fechanac}" title="DateBirth" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"
-                                 converterMessage="#{msgs.errorDateFormat}">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+            <ui:define name="titulo">
+                #{msgs.register}
+            </ui:define>
+            <ui:define name="cabecera">
+                <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
+            </ui:define>
+            <ui:define name="menu">
+                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+            </ui:define>
+            <ui:define name="cuerpo">
+                <h2>
+                    #{msgs.register}
+                </h2>
+                <h:form id="formulario" styleClass="form_settings">
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="#{msgs.name} :" for="name"/>
+                        <h:inputText id="name" value="#{registerBean.usuario.nombre}" title="name" required="true"
+                                     requiredMessage="#{msgs.errorRequiredField}"/>
+                        <h:message for="name" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.surname} :" for="surname"/>
+                        <h:inputText id="surname" value="#{registerBean.usuario.apellidos}" title="Surname"
+                                     required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                        <h:message for="surname" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.email} :" for="email"/>
+                        <h:inputText id="email" value="#{registerBean.usuario.email}" title="Email" required="true"
+                                     requiredMessage="#{msgs.errorRequiredField}">
+                            <f:validator validatorId="emailValidator"/>
+                        </h:inputText>
+                        <h:message for="email" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.birth} :" for="birthDay"/>
+                        <h:inputText id="birthDay" value="#{registerBean.usuario.fechanac}" title="DateBirth"
+                                     required="true" requiredMessage="#{msgs.errorRequiredField}"
+                                     converterMessage="#{msgs.errorDateFormat}">
                             <f:convertDateTime pattern="dd/MM/yyyy"/>
-                    </h:inputText>
-                    <h:message for="birthDay" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.user} :" for="user"/>
-                    <h:inputText id="user" value="#{registerBean.usuario.username}" title="User" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                    <h:message for="user" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.pass} :" for="password"/>
-                    <h:inputSecret id="password" value="#{registerBean.usuario.password}" title="Password"
-                                   required="true" requiredMessage="#{msgs.errorRequiredField}"/>
-                    <h:message for="password" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
-                    <h:inputSecret id="repassword" value="#{registerBean.repassword}" title="RePassword" required="true"
-                                   requiredMessage="#{msgs.errorRequiredField}"/>
-                    <h:message for="repassword" style="color:red;"/>
-                    <h:commandButton value="#{msgs.buttonSend}" action="#{registerBean.register}"/>
-                    <h:commandButton value="#{msgs.buttonDelete}" type="reset"/>
-                    <h:button value="#{msgs.buttonCancel}" outcome="index"/>
-                </h:panelGrid>
-            </h:form>
-        </h:body>
-    </html>
-</f:view>
+                        </h:inputText>
+                        <h:message for="birthDay" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.user} :" for="user"/>
+                        <h:inputText id="user" value="#{registerBean.usuario.username}" title="User" required="true"
+                                     requiredMessage="#{msgs.errorRequiredField}"/>
+                        <h:message for="user" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.pass} :" for="password"/>
+                        <h:inputSecret id="password" value="#{registerBean.usuario.password}" title="Password"
+                                       required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                        <h:message for="password" style="color:red;"/>
+                        <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
+                        <h:inputSecret id="repassword" value="#{registerBean.repassword}" title="RePassword"
+                                       required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                        <h:message for="repassword" style="color:red;"/>
+                    </h:panelGrid>
+                    <table>
+                        <tr>
+                            <td style="padding-top: 20px">
+                                <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
+                                                 action="#{registerBean.register}"/>
+                            </td>
+                            <td style="padding-top: 20px">
+                                <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </ui:define>
+            <ui:define name="pie">
+                <ui:include src="/WEB-INF/facelets/pie.jsf"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
