@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;
+charset=windows-1252"></meta>
+        <title>menu</title>
+    </h:head>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:body>
+        <li>
+            <h:outputLink value="index.jsf">
+                <h:outputText value="#{msgs.inicio}"/>
+            </h:outputLink>
+        </li>
+        <li>
+            <h:outputLink value="login.jsf">
+                <h:outputText value="#{msgs.login}"/>
+            </h:outputLink>
+        </li>
+        <li>
+            <h:outputLink value="register.jsf">
+                <h:outputText value="#{msgs.register}"/>
+            </h:outputLink>
+        </li>
+        <li>
+            <h:outputLink value="showProducts.jsf">
+                <h:outputText value="#{msgs.products}"/>
+            </h:outputLink>
+        </li>
+    </h:body>
+</html>

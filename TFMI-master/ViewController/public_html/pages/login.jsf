@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head>
+            <title>#{msgs.login}</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h1>
+                    <h:outputText value="#{msgs.login}"/>
+                </h1>
+                 <h:panelGrid columns="3">
+                    <h:outputLabel value="#{msgs.user}" for="user"/>
+                    <h:inputText id="user" value="#{loginBean.usuario.username}" title="User" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                    <h:message for="user" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.pass}" for="password"/>
+                    <h:inputSecret id="password" value="#{loginBean.usuario.password}" title="Password"
+                                   required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                    <h:message for="password" style="color:red;"/>
+                    <h:commandButton value="#{msgs.buttonSend}" action="#{loginBean.login}"/>
+                    <h:commandButton value="#{msgs.buttonDelete}" type="reset"/>
+                </h:panelGrid>
+                <h:link value="Registrar usuario" outcome="register"/>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

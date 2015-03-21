@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+        <title>pie</title>
+    </h:head>
+    <body>
+            <a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a>
+             | Autor:
+            <a href="http://es.linkedin.com/pub/daniel-martin-jimenez/78/171/222">Daniel Martin Jimenez</a>
+             | Autor:
+            <a href="http://carlosrodriguezlopez.branded.me">Carlos Rodriguez Lopez</a>
+    </body>
+</html>

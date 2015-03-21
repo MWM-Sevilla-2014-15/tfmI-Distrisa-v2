@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;
+charset=windows-1252"></meta>
+        <title>cabecera</title>
+    </h:head>
+    <h:body>
+        <table style="width:100%;">
+            <tr>
+                <td style="width:10%;">
+                    <h:graphicImage value="/resources/images/distrisa_logo.jpg" />
+                </td>
+                <td style="width:10%;float:left">
+                    <h1>
+                        #{msgs.webname}
+                    </h1>
+                </td>
+                <td style="float:right">
+                    <h:form>
+                        <h:panelGrid columns="2" style="text-align:right;">
+                            <h:commandButton id="español" image="/resources/images/bandera_es.png"
+                                             actionListener="#{generalBean.cambiarLocale}"
+                                             style="height:50px;width:50px;"/>
+                            <h:commandButton id="ingles" image="/resources/images/bandera_en.png"
+                                             actionListener="#{generalBean.cambiarLocale}"
+                                             style="height:50px;width:50px;"/>
+                        </h:panelGrid>
+                    </h:form>
+                </td>
+                <td  style="float:right">
+                        #{msgs.user} : #{generalBean.loggedUserName}
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>

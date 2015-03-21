@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <hash n="dataTypeSettings">
+      <value n="sourceKey" v="oracle.javatools.db.ora.Oracle9iR2"/>
+   </hash>
+   <value n="domainName"/>
+   <value n="id" v="4357feee-b5cc-4eb7-a00c-41b73634ce1f"/>
+   <value n="name" v="TFMI"/>
+</ProviderSettings>

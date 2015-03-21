@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+        <h:outputStylesheet name="css/styles_new.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+            <ui:define name="titulo">#{msgs.inicio}</ui:define>
+            <ui:define name="cabecera">
+                <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
+            </ui:define>
+            <ui:define name="menu">
+                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+            </ui:define>
+            <ui:define name="cuerpo">
+                <h:outputText value="Bienvenido pagina principal de la Distribuidora Distrisa. 
+                Para nosotros distribucion es es aquel conjunto de actividades, 
+                que se realizan desde que el producto ha sido elaborado por el fabricante hasta que 
+                ha sido comprado por el consumidor final, y que tiene por objeto precisamente hacer 
+                llegar el producto (bien o servicio) hasta el consumidor. La distribucion comercial 
+                es responsable de que aumente el valor tiempo y el valor lugar a un bien. 
+                Por ejemplo, una bebida refrescante tiene un valor por su marca, imagen etc., la distribucion 
+                comercial aumenta el valor tiempo y valor lugar poniedola a disposicion del cliente en el momento 
+                y lugar en que la necesita o desea comprarla."/>
+            </ui:define>
+            <ui:define name="pie">
+                <ui:include src="/WEB-INF/facelets/pie.jsf"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

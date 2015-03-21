@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="content-type" content="text/html;
+charset=UTF-8"/>
+        <title>
+            <ui:insert name="titulo">Titulo</ui:insert>
+        </title>
+        <h:outputStylesheet name="css/styles_new.css"/>
+    </h:head>
+    <h:body>
+        <div id="main">
+            <div id="header">
+                <div id="banner">
+                    <ui:insert name="cabecera">Cabecera</ui:insert>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                    <ui:insert name="menu">Menu</ui:insert>
+                </ul>
+            </div>
+            <div id="site_content">
+                <div id="content">
+                    <div class="content_item">
+                        <div style="height:300px">
+                            <ui:insert name="cuerpo">Cuerpo</ui:insert>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <ui:insert name="pie">Pie</ui:insert>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+  <persistence-unit name="TFMI">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/ETSIIDS</jta-data-source>
+    <class>es.us.master.entities.Carrotfmi</class>
+    <class>es.us.master.entities.Listacompratfmi</class>
+    <class>es.us.master.entities.Productotfmi</class>
+    <class>es.us.master.entities.Usuariotfmi</class>
+    <properties>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="eclipselink.target-database" value="Oracle9i"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/ETSIIDS"/>
+    </properties>
+  </persistence-unit>
+</persistence>
