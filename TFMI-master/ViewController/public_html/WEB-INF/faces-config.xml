@@ -33,6 +33,14 @@ version="2.0">
             <from-outcome>PRODUCTOS</from-outcome>
             <to-view-id>/pages/manageProducts.jsf</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>PROFILE</from-outcome>
+            <to-view-id>/pages/editProfile.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>LOGOUT</from-outcome>
+            <to-view-id>/pages/index.jsf</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/register.jsf</from-view-id>

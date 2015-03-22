@@ -45,7 +45,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">B56,244.5,-63.19922,463.0,73.734375,L50</property>
+         name="sdm:polyPoints">B56,244.5,-63.19922,463.0,66.734375,L42</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -292,5 +292,29 @@
          name="description">Navigation Case</property>
       <property
          name="sdm:polyPoints">T44,253.5,72.60156,260.5,72.60156,T56</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase36"
+      from="Page10"
+      to="Page15">
+      <property
+         name="fromOutcome">LOGOUT</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">L58,463.0,80.734375,145.0,304.8672,R50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase37"
+      from="Page10"
+      to="Page31">
+      <property
+         name="fromOutcome">PROFILE</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">L50,461.3435,73.734375,298.0,126.60156,R50</property>
    </NavigationCase>
 </SDM>
