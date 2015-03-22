@@ -58,6 +58,17 @@ version="2.0">
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/pages/manageProducts.jsf</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/pages/adminZone.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ERROR</from-outcome>
+            <to-view-id>/pages/manageProducts.jsf</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/pages/clientZone.jsf</from-view-id>
         <navigation-case>
             <from-outcome>SHOP1</from-outcome>

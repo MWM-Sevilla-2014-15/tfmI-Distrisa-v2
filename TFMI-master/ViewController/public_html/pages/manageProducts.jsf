@@ -1,10 +1,60 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        <h:head></h:head>
-        <h:body>
-            <h:form></h:form>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    </h:head>
+    <h:body>
+            <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+            <ui:define name="titulo">
+                #{msgs.register}
+            </ui:define>
+            <ui:define name="cabecera">
+                <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
+            </ui:define>
+            <ui:define name="menu">
+                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+            </ui:define>
+            <ui:define name="cuerpo">
+                <h2>
+                    #{msgs.manage}
+                </h2>
+                <h:form id="formulario" styleClass="form_settings">
+                    <h:panelGrid columns="3">
+                    <h:outputLabel value="#{msgs.name} :" for="name"/>
+                    <h:inputText id="name" value="#{productsBean.producto.nombre}" title="name" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="name" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.descripcion} :" for="descripcion"/>
+                    <h:inputText id="descripcion" value="#{productsBean.producto.descripcion}" title="Descripcion" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="descripcion" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.precio} :" for="precio"/>
+                    <h:inputText id="precio" value="#{productsBean.producto.precio}" title="Precio" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="precio" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.categoria} :" for="categoria"/>
+                    <h:inputText id="categoria" value="#{productsBean.producto.categoria}" title="Categoria" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="categoria" style="color:red;"/>
+                </h:panelGrid>
+                <table>
+                        <tr>
+                            <td style="padding-top: 20px">
+                                <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
+                                                 action="#{productsBean.register}"/>
+                            </td>
+                            <td style="padding-top: 20px">
+                                <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </ui:define>
+            <ui:define name="pie">
+                <ui:include src="/WEB-INF/facelets/pie.jsf"/>
+            </ui:define>
+        </ui:composition>
         </h:body>
     </html>
-</f:view>

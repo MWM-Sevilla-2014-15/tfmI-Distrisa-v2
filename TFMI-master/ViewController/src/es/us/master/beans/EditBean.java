@@ -4,6 +4,8 @@ import es.us.master.entities.Usuariotfmi;
 
 import java.io.IOException;
 
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 
 import javax.ejb.EJB;
@@ -69,12 +71,14 @@ public class EditBean extends GeneralBean{
                     usuario.setApellidos(apellidos);
                     usuario.setEmail(email);
                     usuario.setPassword(password);
+                    usuario.setFechaact(new Date());
                     usuarioBean.mergeUsuariotfmi(usuario);
                 }
             } else {
                 usuario.setNombre(nombre);
                 usuario.setApellidos(apellidos);
                 usuario.setEmail(email);
+                usuario.setFechaact(new Date());
                 usuarioBean.mergeUsuariotfmi(usuario);
             }
             return "OK";

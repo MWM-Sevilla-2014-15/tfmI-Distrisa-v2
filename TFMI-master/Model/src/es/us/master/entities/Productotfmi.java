@@ -45,9 +45,9 @@ public class Productotfmi implements Serializable {
     @Column(nullable = false, length = 20)
     private String descripcion;
     @Temporal(TemporalType.DATE)
-    private Date fechaact;
+    private Date fechaact = new Date();
     @Temporal(TemporalType.DATE)
-    private Date fechaalt;
+    private Date fechaalt = new Date();
     @Column(nullable = false, length = 20)
     private String nombre;
     @Column(nullable = false)
