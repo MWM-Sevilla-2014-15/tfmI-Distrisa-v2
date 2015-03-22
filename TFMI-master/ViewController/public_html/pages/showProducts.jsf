@@ -27,6 +27,12 @@
                                          rows="10">
                                 <h:column>
                                     <f:facet name="header">
+                                        <h:outputText value="Imagen"/>
+                                    </f:facet>
+                                     <h:graphicImage value="/resources/images/productos/#{item.nombre}.jpg" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
                                         <h:outputText value="Nombre"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombre}"/>

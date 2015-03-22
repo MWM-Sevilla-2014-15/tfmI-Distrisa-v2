@@ -22,7 +22,6 @@
                         <h2>
                             <h:outputText value="#{msgs.manage}"/>
                         </h2>
-                         
                         <h:form id="formulario" styleClass="form_settings">
                             <h:panelGrid columns="3">
                                 <h:outputLabel value="#{msgs.name} :" for="name"/>
