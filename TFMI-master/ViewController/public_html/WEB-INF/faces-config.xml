@@ -41,6 +41,10 @@ version="2.0">
             <from-outcome>LOGOUT</from-outcome>
             <to-view-id>/pages/index.jsf</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>TROLLEY</from-outcome>
+            <to-view-id>/pages/trolley.jsf</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/register.jsf</from-view-id>

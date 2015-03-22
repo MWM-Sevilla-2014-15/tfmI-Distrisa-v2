@@ -1,5 +1,6 @@
 package es.us.master.beans;
 
+
 import es.us.master.entities.Productotfmi;
 
 import java.util.List;
