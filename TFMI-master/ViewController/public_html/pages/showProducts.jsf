@@ -30,27 +30,27 @@
                                     <f:facet name="header">
                                         <h:outputText value="Nombre"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.nombre}"/>
+                                    <h:outputText value="#{item.nombre}" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Categoria"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.categoria}"/>
+                                    <h:outputText value="#{item.categoria}" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Descripcion"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.descripcion}"/>
+                                    <h:outputText value="#{item.descripcion}" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Precio"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.precio}"></h:outputText>
+                                    <h:outputText value="#{item.precio}" />
                                 </h:column>
-                            </h:dataTable>
+                                </h:dataTable>
                         </h:form>
                     </div>
                 </div>

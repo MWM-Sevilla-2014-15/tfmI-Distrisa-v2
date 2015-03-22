@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * To create ID generator sequence "PRODUCTOTFMI_ID_SEQ_GEN":
@@ -54,6 +55,8 @@ public class Productotfmi implements Serializable {
     private int precio;
     @OneToMany(mappedBy = "productotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<Listacompratfmi> listacompratfmiList;
+    @Transient
+    private boolean editable = false;
 
     public Productotfmi() {
     }
@@ -148,5 +151,13 @@ public class Productotfmi implements Serializable {
         getListacompratfmiList().remove(listacompratfmi);
         listacompratfmi.setProductotfmi(null);
         return listacompratfmi;
+    }
+    
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
+    public boolean isEditable() {
+        return editable;
     }
 }

@@ -1,6 +1,8 @@
 package es.us.master.beans;
 
 import es.us.master.entities.Carrotfmi;
+import es.us.master.entities.Usuariotfmi;
+
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -14,14 +16,15 @@ public class TrolleyBean extends GeneralBean{
     
     @EJB
     private CarrotfmiBeanLocal carroBean;
-    private Carrotfmi carro;
+    private Usuariotfmi usuario;
+    private List<Carrotfmi> carros;
     public TrolleyBean() {
         super();
-        carro= new Carrotfmi();
         context.getExternalContext().getSessionMap().put( "pageBack", "index.jsf");
+        usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
     }
-    public Carrotfmi getCarro() {
-        return carro;
+    public List<Carrotfmi> getCarro() {
+        return carros;
     }
             
     public List<Carrotfmi> getCarros() {
