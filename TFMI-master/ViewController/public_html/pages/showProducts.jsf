@@ -1,18 +1,29 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        <h:head>
-            <title>#{msgs.productos}</title>
-        </h:head>
-        <h:body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+            <ui:define name="titulo">
+                #{msgs.productos}
+            </ui:define>
+            <ui:define name="cabecera">
+                <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
+            </ui:define>
+            <ui:define name="menu">
+                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+            </ui:define>
+            <ui:define name="cuerpo">
             <h:form>
                 <h1>
                     <h:outputText value="#{msgs.productos}"/>
                 </h1>
-                <h:commandLink action="#{generalBean.goBack}" value="Volver"/>
+                <h:commandLink styleClass="submit" action="#{generalBean.goBack}" value="Volver"/>
             </h:form>
-            <h:form>
+            <h:form id="formulario" styleClass="form_settings">
                 <h:dataTable value="#{productsBean.productos}" var="item" id="productosList" rows="10">
                     <h:column>
                         <f:facet name="header">
@@ -41,6 +52,10 @@
                     </h:column>
                 </h:dataTable>
             </h:form>
-        </h:body>
-    </html>
-</f:view>
+            </ui:define>
+        <ui:define name="pie">
+                <ui:include src="/WEB-INF/facelets/pie.jsf"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

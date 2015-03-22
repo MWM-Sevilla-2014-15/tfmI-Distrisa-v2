@@ -34,7 +34,9 @@ public class LoginBean extends GeneralBean{
         String adminPass= prop.getProp("passAdmin");
                 
         if (adminUser.equals(requestUser) && adminPass.equals(requestPass)){
+            Usuariotfmi u = usuarioBean.getUsuariotfmiUsernamePassword(requestUser, requestPass);
             res = "ADMIN";
+            context.getExternalContext().getSessionMap().put("usuario", u);
         } else {
             Usuariotfmi u = usuarioBean.getUsuariotfmiUsernamePassword(requestUser, requestPass);
             if(u == null){

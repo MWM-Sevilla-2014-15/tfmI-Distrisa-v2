@@ -75,4 +75,8 @@ public class GeneralBean {
         public String goToShop (){
             return "SHOP";
         }
+        
+        public String goToManageProducts(){
+            return "PRODUCTOS";
+        }
 }
