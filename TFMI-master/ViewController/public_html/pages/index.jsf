@@ -17,11 +17,25 @@
                 <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-                <h2>
-                        #{msgs.inicio}
-                </h2>
-                <p>
-                    <h:outputText value="Bienvenido pagina principal de la Distribuidora Distrisa. 
+                <div id="content">
+                    <div class="slideshow" id="content_item" style="float:right">
+                        <div id="galery" class="fotorama" data-transition="dissolve" data-loop="true"
+                             data-allowfullscreen="true" data-nav="thumbs">
+                            <img src="../resources/images/slideshow/slide1.jpg"/>
+                            <img src="../resources/images/slideshow/slide2.jpg"/>
+                            <img src="../resources/images/slideshow/slide3.jpg"/>
+                            <img src="../resources/images/slideshow/slide4.jpg"/>
+                            <img src="../resources/images/slideshow/slide6.jpg"/>
+                            <img src="../resources/images/slideshow/slide7.jpg"/>
+                            <img src="../resources/images/slideshow/slide8.jpg"/>
+                        </div>
+                    </div>
+                    <div class="content_item">
+                        <h1>
+                            #{msgs.inicio}
+                        </h1>
+                        <p>
+                            <h:outputText value="Bienvenido pagina principal de la Distribuidora Distrisa. 
                 Para nosotros distribucion es es aquel conjunto de actividades, 
                 que se realizan desde que el producto ha sido elaborado por el fabricante hasta que 
                 ha sido comprado por el consumidor final, y que tiene por objeto precisamente hacer 
@@ -30,7 +44,9 @@
                 Por ejemplo, una bebida refrescante tiene un valor por su marca, imagen etc., la distribucion 
                 comercial aumenta el valor tiempo y valor lugar poniedola a disposicion del cliente en el momento 
                 y lugar en que la necesita o desea comprarla."/>
-                </p>
+                        </p>
+                    </div>
+                </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

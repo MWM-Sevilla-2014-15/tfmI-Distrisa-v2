@@ -9,6 +9,9 @@ charset=UTF-8"/>
             <ui:insert name="titulo">Titulo</ui:insert>
         </title>
         <h:outputStylesheet name="css/styles_new.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.3/fotorama.css" rel="stylesheet"/>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.3/fotorama.js"></script>
     </h:head>
     <h:body>
         <div id="main">
@@ -23,11 +26,7 @@ charset=UTF-8"/>
                 </ul>
             </div>
             <div id="site_content">
-                <div id="content">
-                    <div class="content_item">
-                        <ui:insert name="cuerpo">Cuerpo</ui:insert>
-                    </div>
-                </div>
+                <ui:insert name="cuerpo">Cuerpo</ui:insert>
             </div>
         </div>
         <div id="footer">

@@ -17,37 +17,44 @@
                 <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-            <h2>#{msgs.products}</h2>
-            <h:form>
-                <h:dataTable styleClass="tg" value="#{productsBean.productos}" var="item" id="productosList" rows="10">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Nombre"/>
-                        </f:facet>
-                        <h:outputText value="#{item.nombre}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Categoria"/>
-                        </f:facet>
-                        <h:outputText value="#{item.categoria}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Descripcion"/>
-                        </f:facet>
-                        <h:outputText value="#{item.descripcion}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Precio"/>
-                        </f:facet>
-                        <h:outputText value="#{item.precio}">
-                        </h:outputText>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-       </ui:define>
+                <div id="content">
+                    <div class="content_item">
+                        <h2>
+                            #{msgs.products}
+                        </h2>
+                         
+                        <h:form>
+                            <h:dataTable styleClass="tg" value="#{productsBean.productos}" var="item" id="productosList"
+                                         rows="10">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nombre}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Categoria"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categoria}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Descripcion"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.descripcion}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Precio"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.precio}"></h:outputText>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>
             </ui:define>

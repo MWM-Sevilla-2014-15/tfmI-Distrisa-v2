@@ -17,6 +17,8 @@
                 <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
+            <div id="content">
+                    <div class="content_item">
                 <h2>
                     #{msgs.register}
                 </h2>
@@ -68,6 +70,8 @@
                         </tr>
                     </table>
                 </h:form>
+                </div>
+                </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

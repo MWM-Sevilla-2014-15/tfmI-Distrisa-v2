@@ -17,46 +17,56 @@
                 <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-                <div class="form_settings">
-                    <h2>#{msgs.login}</h2>
-                    <h:form id="formulario">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h:outputLabel value="#{msgs.user}" for="user"/>
-                                </td>
-                                <td>
-                                    <h:inputText id="user" value="#{loginBean.usuario.username}" title="User"
-                                                 required="true" requiredMessage="#{msgs.errorRequiredField}"/>
-                                </td>
-                                <td>
-                                    <h:message for="user" style="color:red;"/>
-                                </td>
-                            </tr>
+                <div id="content">
+                    <div class="content_item">
+                        <div class="form_settings">
+                            <h2>
+                                #{msgs.login}
+                            </h2>
                              
-                            <tr>
-                                <td>
-                                    <h:outputLabel value="#{msgs.pass}" for="password"/>
-                                </td>
-                                <td>
-                                    <h:inputSecret id="password" value="#{loginBean.usuario.password}" title="Password"
-                                                   required="true" requiredMessage="#{msgs.errorRequiredField}"/>
-                                </td>
-                                <td>
-                                    <h:message for="password" style="color:red;"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 20px">
-                                <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
-                                                 action="#{loginBean.login}"/>
-                                                 </td>
-                                <td style="padding-top: 20px">
-                                <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </h:form>
+                            <h:form id="formulario">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h:outputLabel value="#{msgs.user}" for="user"/>
+                                        </td>
+                                        <td>
+                                            <h:inputText id="user" value="#{loginBean.usuario.username}" title="User"
+                                                         required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                                        </td>
+                                        <td>
+                                            <h:message for="user" style="color:red;"/>
+                                        </td>
+                                    </tr>
+                                     
+                                    <tr>
+                                        <td>
+                                            <h:outputLabel value="#{msgs.pass}" for="password"/>
+                                        </td>
+                                        <td>
+                                            <h:inputSecret id="password" value="#{loginBean.usuario.password}"
+                                                           title="Password" required="true"
+                                                           requiredMessage="#{msgs.errorRequiredField}"/>
+                                        </td>
+                                        <td>
+                                            <h:message for="password" style="color:red;"/>
+                                        </td>
+                                    </tr>
+                                     
+                                    <tr>
+                                        <td style="padding-top: 20px">
+                                            <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
+                                                             action="#{loginBean.login}"/>
+                                        </td>
+                                        <td style="padding-top: 20px">
+                                            <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}"
+                                                             type="reset"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </h:form>
+                        </div>
+                    </div>
                 </div>
             </ui:define>
             <ui:define name="pie">
