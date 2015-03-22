@@ -10,7 +10,7 @@ charset=windows-1252"></meta>
         <table style="width:100%;">
             <tr>
                 <td style="width:10%;">
-                    <h:graphicImage value="/resources/images/distrisa_logo.jpg" />
+                    <h:graphicImage value="/resources/images/distrisa.png" />
                 </td>
                 <td style="width:10%;float:left">
                     <h1>
@@ -30,7 +30,9 @@ charset=windows-1252"></meta>
                     </h:form>
                 </td>
                 <td  style="float:right">
+                        <div class="center">
                         #{msgs.user} : #{generalBean.loggedUserName}
+                        </div>
                 </td>
             </tr>
         </table>
