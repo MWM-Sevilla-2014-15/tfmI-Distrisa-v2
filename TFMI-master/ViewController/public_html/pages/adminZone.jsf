@@ -13,18 +13,17 @@
                 <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
             </ui:define>
             <ui:define name="menu">
-                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+                <ui:include src="/WEB-INF/facelets/menuAdmin.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-                <h:form>
-                <h:commandLink action="#{generalBean.goToProfile}" value="Perfil"/>
-                <h:outputText value=" | "/>
-                <h:commandLink action="#{generalBean.goToManageProducts}" value="Administrar productos"/>
-                <h:outputText value=" | "/>
-                <h:commandLink action="#{generalBean.goToShowTrolley}" value="Ver carritos"/>
-                <h:outputText value=" | "/>
-                <h:commandLink action="#{generalBean.logout}" value="Desconectar"/>
-                </h:form>
+                 <div class="content_item">
+                        <h1>
+                            <h:outputText value="#{msgs.clienteAdmin}"/>
+                        </h1>
+                        <p>
+                            <h:outputText value="Estas en la zona de administracion.... a gestionar"/>
+                        </p>
+                    </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

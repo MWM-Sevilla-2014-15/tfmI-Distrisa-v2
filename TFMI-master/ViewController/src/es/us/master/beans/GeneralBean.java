@@ -68,19 +68,39 @@ public class GeneralBean {
             return loggedUserName;
         }
         
-        /*Opciones del Menu*/
+        /***************************************************
+         *********************MENU**************************
+        ***************************************************/
+        
+        /*Menu PUBLICO*/
+        public String goToRegister (){
+            return "REGISTER";
+        }
+        public String goToLogin (){
+            return "LOGIN";
+        }
+        public String goToShowProducts (){
+            return "SHOWPRODUCTS";
+        }
+        /*Menu CLIENTES*/
+        public String goToClientMenu (){
+            return "CLIENT";
+        }
         public String goToProfile (){
             return "PROFILE";
         }
         public String goToShop (){
             return "SHOP";
         }
-        
+        /*Menu ADMINISTRACION*/
+        public String goToAdminMenu (){
+            return "ADMIN";
+        }
         public String goToManageProducts(){
             return "PRODUCTOS";
         }
-        
         public String goToShowTrolley(){
             return "TROLLEY";
         }
+
 }

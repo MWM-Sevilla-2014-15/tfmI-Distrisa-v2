@@ -32,7 +32,7 @@
                     </div>
                     <div class="content_item">
                         <h1>
-                            #{msgs.inicio}
+                             <h:outputText value="#{msgs.inicio}"/>
                         </h1>
                         <p>
                             <h:outputText value="Bienvenido pagina principal de la Distribuidora Distrisa. 

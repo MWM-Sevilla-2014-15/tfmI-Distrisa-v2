@@ -21,9 +21,8 @@
                     <div class="content_item">
                         <div class="form_settings">
                             <h2>
-                                #{msgs.login}
+                                 <h:outputText value="#{msgs.login}"/>
                             </h2>
-                             
                             <h:form id="formulario">
                                 <table>
                                     <tr>

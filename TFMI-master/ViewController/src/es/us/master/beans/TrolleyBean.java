@@ -20,7 +20,6 @@ public class TrolleyBean extends GeneralBean{
     private List<Carrotfmi> carros;
     public TrolleyBean() {
         super();
-        context.getExternalContext().getSessionMap().put( "pageBack", "index.jsf");
         usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
     }
     public List<Carrotfmi> getCarro() {

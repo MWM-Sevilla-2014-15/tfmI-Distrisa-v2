@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
     </h:head>
     <h:body>
-            <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+        <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
             <ui:define name="titulo">
                 #{msgs.register}
             </ui:define>
@@ -14,55 +14,60 @@
                 <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
             </ui:define>
             <ui:define name="menu">
-                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+                <ui:include src="/WEB-INF/facelets/menuAuxiliar.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-                <h2>
-                    #{msgs.edit}
-                </h2>
-                <h:form id="formulario" styleClass="form_settings">
-                    <h:panelGrid columns="3">
-                    <h:outputLabel value="#{msgs.name} :" for="name"/>
-                    <h:inputText id="name" value="#{editBean.nombre}" title="name" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                                 <h:message for="name" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.surname} :" for="surname"/>
-                    <h:inputText id="surname" value="#{editBean.apellidos}" title="Surname" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                                 <h:message for="surname" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.email} :" for="email"/>
-                    <h:inputText id="email" value="#{editBean.email}" title="Email" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                                 <h:message for="email" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.user} :" for="user"/>
-                    <h:inputText id="user" value="#{editBean.username}" title="User" required="true"
-                                 requiredMessage="#{msgs.errorRequiredField}"/>
-                                 <h:message for="user" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.pass} :" for="password"/>
-                    <h:inputSecret id="password" value="#{editBean.password}" title="Password" required="true" 
-                                requiredMessage="#{msgs.errorRequiredField}"/>
+                <div id="content">
+                    <div class="content_item">
+                        <h2>
+                            <h:outputText value="#{msgs.edit}"/>
+                        </h2>
+                         
+                        <h:form id="formulario" styleClass="form_settings">
+                            <h:panelGrid columns="3">
+                                <h:outputLabel value="#{msgs.name} :" for="name"/>
+                                <h:inputText id="name" value="#{editBean.nombre}" title="name" required="true"
+                                             requiredMessage="#{msgs.errorRequiredField}"/>
+                                <h:message for="name" style="color:red;"/>
+                                <h:outputLabel value="#{msgs.surname} :" for="surname"/>
+                                <h:inputText id="surname" value="#{editBean.apellidos}" title="Surname" required="true"
+                                             requiredMessage="#{msgs.errorRequiredField}"/>
+                                <h:message for="surname" style="color:red;"/>
+                                <h:outputLabel value="#{msgs.email} :" for="email"/>
+                                <h:inputText id="email" value="#{editBean.email}" title="Email" required="true"
+                                             requiredMessage="#{msgs.errorRequiredField}"/>
+                                <h:message for="email" style="color:red;"/>
+                                <h:outputLabel value="#{msgs.user} :" for="user"/>
+                                <h:inputText id="user" value="#{editBean.username}" title="User" required="true"
+                                             requiredMessage="#{msgs.errorRequiredField}"/>
+                                <h:message for="user" style="color:red;"/>
+                                <h:outputLabel value="#{msgs.pass} :" for="password"/>
+                                <h:inputSecret id="password" value="#{editBean.password}" title="Password"
+                                               required="true" requiredMessage="#{msgs.errorRequiredField}"/>
                                 <h:message for="password" style="color:red;"/>
-                    <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
-                    <h:inputSecret id="repassword" value="#{editBean.repassword}" title="RePassword" required="true"
-                                   requiredMessage="#{msgs.errorRequiredField}"/>
-                                   <h:message for="repassword" style="color:red;"/>
-                </h:panelGrid>
-                <table>
-                        <tr>
-                            <td style="padding-top: 20px">
-                                <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
-                                                 action="#{editBean.edit}"/>
-                            </td>
-                            <td style="padding-top: 20px">
-                                <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
-                            </td>
-                        </tr>
-                    </table>
-                </h:form>
+                                <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
+                                <h:inputSecret id="repassword" value="#{editBean.repassword}" title="RePassword"
+                                               required="true" requiredMessage="#{msgs.errorRequiredField}"/>
+                                <h:message for="repassword" style="color:red;"/>
+                            </h:panelGrid>
+                            <table>
+                                <tr>
+                                    <td style="padding-top: 20px">
+                                        <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
+                                                         action="#{editBean.edit}"/>
+                                    </td>
+                                    <td style="padding-top: 20px">
+                                        <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h:form>
+                    </div>
+                </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>
             </ui:define>
         </ui:composition>
-        </h:body>
-    </html>
+    </h:body>
+</html>

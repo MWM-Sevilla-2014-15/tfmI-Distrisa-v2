@@ -15,6 +15,22 @@
         <validator-id>emailValidator</validator-id>
         <validator-class>es.us.master.utils.EmailValidator</validator-class>
     </validator>
+    <!-- MENU PUBLICO -->
+    <navigation-rule>
+        <from-view-id>/pages/index.jsf</from-view-id>
+        <navigation-case>
+            <from-outcome>LOGIN</from-outcome>
+            <to-view-id>/pages/login.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>REGISTER</from-outcome>
+            <to-view-id>/pages/register.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>SHOWPRODUCTS</from-outcome>
+            <to-view-id>/pages/showProducts.jsf</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/login.jsf</from-view-id>
         <navigation-case>
@@ -28,6 +44,17 @@
         <navigation-case>
             <from-outcome>ERROR</from-outcome>
             <to-view-id>/pages/login.jsf</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/pages/register.jsf</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/pages/index.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ERROR</from-outcome>
+            <to-view-id>/pages/register.jsf</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -47,17 +74,6 @@
         <navigation-case>
             <from-outcome>TROLLEY</from-outcome>
             <to-view-id>/pages/trolley.jsf</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/pages/register.jsf</from-view-id>
-        <navigation-case>
-            <from-outcome>OK</from-outcome>
-            <to-view-id>/pages/index.jsf</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>ERROR</from-outcome>
-            <to-view-id>/pages/register.jsf</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>

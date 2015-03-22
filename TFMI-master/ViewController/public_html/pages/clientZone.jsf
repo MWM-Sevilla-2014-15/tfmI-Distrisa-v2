@@ -13,16 +13,17 @@
                 <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
             </ui:define>
             <ui:define name="menu">
-                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+                <ui:include src="/WEB-INF/facelets/menuClient.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-                <h:form>
-                <h:commandLink action="#{generalBean.goToProfile}" value="Perfil"/>
-                <h:outputText value=" | "/>
-                <h:commandLink action="#{generalBean.goToShop}" value="Tienda"/>
-                <h:outputText value=" | "/>
-                <h:commandLink action="#{generalBean.logout}" value="Desconectar"/>
-                </h:form>
+                 <div class="content_item">
+                        <h1>
+                             <h:outputText value="#{msgs.clienteZona}"/>
+                        </h1>
+                        <p>
+                            <h:outputText value="Estas en la zona de clientes.... a comprar"/>
+                        </p>
+                    </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

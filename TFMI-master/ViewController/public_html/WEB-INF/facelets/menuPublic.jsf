@@ -6,27 +6,23 @@
 charset=windows-1252"></meta>
         <title>menu</title>
     </h:head>
-    <h:outputStylesheet name="css/styles.css"/>
     <h:body>
-        <li>
-            <h:outputLink value="index.jsf">
-                <h:outputText value="#{msgs.inicio}"/>
-            </h:outputLink>
-        </li>
-        <li>
-            <h:outputLink value="login.jsf">
-                <h:outputText value="#{msgs.login}"/>
-            </h:outputLink>
-        </li>
-        <li>
-            <h:outputLink value="register.jsf">
-                <h:outputText value="#{msgs.register}"/>
-            </h:outputLink>
-        </li>
-        <li>
-            <h:outputLink value="showProducts.jsf">
-                <h:outputText value="#{msgs.products}"/>
-            </h:outputLink>
-        </li>
+        <h:form>
+                <li>
+                    <h:link value="#{msgs.inicio}" outcome="index"/>
+                </li>
+                <li>
+                    <h:link value="#{msgs.login}" outcome="login"/>
+                </li>
+                <li>
+                    <h:link value="#{msgs.register}" outcome="register"/>
+                </li>
+                <li>
+                    <h:link value="#{msgs.showProducts}" outcome="showProducts"/>
+                </li>
+                <li style="float:right; padding-right: 15px;">
+                    <h:outputText value="#{msgs.publicMenu}"/>
+                </li>
+        </h:form>
     </h:body>
 </html>

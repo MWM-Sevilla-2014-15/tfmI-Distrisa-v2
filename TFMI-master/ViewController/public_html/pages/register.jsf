@@ -20,7 +20,7 @@
             <div id="content">
                     <div class="content_item">
                 <h2>
-                    #{msgs.register}
+                     <h:outputText value="#{msgs.register}"/>
                 </h2>
                 <h:form id="formulario" styleClass="form_settings">
                     <h:panelGrid columns="3">

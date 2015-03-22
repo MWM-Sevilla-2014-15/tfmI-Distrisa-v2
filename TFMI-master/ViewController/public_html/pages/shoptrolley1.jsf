@@ -1,10 +1,59 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf8'?>
 <!DOCTYPE html>
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        <h:head></h:head>
-        <h:body>
-            <h:form></h:form>
-        </h:body>
-    </html>
-</f:view>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
+        <h:outputStylesheet name="css/styles_new.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
+            <ui:define name="titulo">#{msgs.shop1}</ui:define>
+            <ui:define name="cabecera">
+                <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
+            </ui:define>
+            <ui:define name="menu">
+                <ui:include src="/WEB-INF/facelets/menuAuxiliar.jsf"/>
+            </ui:define>
+            <ui:define name="cuerpo">
+               <h:form>
+                <h1>
+                    <h:outputText value="#{msgs.shop1}"/>
+                </h1>
+            </h:form>
+            <h:form id="formulario" styleClass="form_settings">
+                <h:dataTable value="#{trolleyBean.carros}" var="item" id="carrosList" rows="10">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Codigo carro"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codCarro}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fecha de compra"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechacompra}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Total"/>
+                        </f:facet>
+                        <h:outputText value="#{item.total}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Usuario"/>
+                        </f:facet>
+                        <h:outputText value="#{item.usuariotfmi}">
+                        </h:outputText>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            </ui:define>
+            <ui:define name="pie">
+                <ui:include src="/WEB-INF/facelets/pie.jsf"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

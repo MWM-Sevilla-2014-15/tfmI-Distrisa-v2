@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html;
+charset=windows-1252"></meta>
+        <title>menu</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <li>
+                <h:commandLink action="#{generalBean.goBack}" value="#{msgs.back}"/>
+            </li>
+        </h:form>
+    </h:body>
+</html>

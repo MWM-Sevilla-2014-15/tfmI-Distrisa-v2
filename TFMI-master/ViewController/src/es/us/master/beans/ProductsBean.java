@@ -27,7 +27,6 @@ public class ProductsBean extends GeneralBean{
         private List<Productotfmi> productos;
         public ProductsBean() {
             super();
-            context.getExternalContext().getSessionMap().put( "pageBack", "index.jsf");
         }
         
         @PostConstruct

@@ -13,7 +13,7 @@
                 <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
             </ui:define>
             <ui:define name="menu">
-                <ui:include src="/WEB-INF/facelets/menuPublic.jsf"/>
+                <ui:include src="/WEB-INF/facelets/menuAuxiliar.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
                <h:form>

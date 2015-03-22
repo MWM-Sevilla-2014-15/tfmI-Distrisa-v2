@@ -7,7 +7,6 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 @ManagedBean
 @RequestScoped
@@ -37,6 +36,7 @@ public class LoginBean extends GeneralBean{
             Usuariotfmi u = usuarioBean.getUsuariotfmiUsernamePassword(requestUser, requestPass);
             res = "ADMIN";
             context.getExternalContext().getSessionMap().put("usuario", u);
+            context.getExternalContext().getSessionMap().put( "pageBack", "adminZone.jsf");
         } else {
             Usuariotfmi u = usuarioBean.getUsuariotfmiUsernamePassword(requestUser, requestPass);
             if(u == null){
@@ -45,6 +45,7 @@ public class LoginBean extends GeneralBean{
             } else {
                 res = "CLIENT";
                 context.getExternalContext().getSessionMap().put("usuario", u);
+                context.getExternalContext().getSessionMap().put( "pageBack", "clientZone.jsf");
             }
         }
         return res;
