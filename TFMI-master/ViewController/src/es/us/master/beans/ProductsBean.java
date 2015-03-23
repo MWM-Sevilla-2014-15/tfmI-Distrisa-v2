@@ -78,9 +78,11 @@ public class ProductsBean extends GeneralBean {
         productoBean.mergeProductotfmi(producto);
     }
 
-    public void remove(Productotfmi producto) {
+    public String remove(Productotfmi producto) {
+        String res;
         productos.get(productos.indexOf(producto)).setActivo(0);
         productoBean.mergeProductotfmi(producto);
+        return res = "REMOVE";
     }
 
     public String getCategoria() {

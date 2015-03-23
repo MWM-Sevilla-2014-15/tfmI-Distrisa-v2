@@ -22,7 +22,7 @@ public class EditBean extends GeneralBean {
 
     private String nombre;
     private String apellidos;
-    private String estado;
+    private String activo;
     private String email;
     private String password;
     private String repassword;
@@ -50,7 +50,7 @@ public class EditBean extends GeneralBean {
         } else {
             nombre = usuario.getNombre();
             apellidos = usuario.getApellidos();
-            estado = String.valueOf(usuario.getActivo());
+            activo = String.valueOf(usuario.getActivo());
             email = usuario.getEmail();
 
         }
@@ -58,6 +58,7 @@ public class EditBean extends GeneralBean {
     }
 
     public String edit() {
+        String res = "";
         if (!password.isEmpty() || !repassword.isEmpty()) {
             if (!password.equals(repassword)) {
 
@@ -70,9 +71,9 @@ public class EditBean extends GeneralBean {
                 usuario.setApellidos(apellidos);
                 usuario.setEmail(email);
                 usuario.setPassword(password);
-                if (Integer.valueOf(estado).equals(1)) {
+                if (Integer.valueOf(activo).equals(1)) {
                     usuario.setActivo(1);
-                } else if (Integer.valueOf(estado).equals(0)) {
+                } else if (Integer.valueOf(activo).equals(0)) {
                     usuario.setActivo(0);
                 }
                 usuario.setFechaact(new Date());
@@ -82,16 +83,21 @@ public class EditBean extends GeneralBean {
             usuario.setNombre(nombre);
             usuario.setApellidos(apellidos);
             usuario.setEmail(email);
-            if (Integer.valueOf(estado).equals(1)) {
+            if (Integer.valueOf(activo).equals(1)) {
                 usuario.setActivo(1);
-            } else if (Integer.valueOf(estado).equals(0)) {
+            } else if (Integer.valueOf(activo).equals(0)) {
                 usuario.setActivo(0);
             }
             usuario.setFechaact(new Date());
             usuarioBean.mergeUsuariotfmi(usuario);
         }
-        return "OK";
-
+        if(Integer.valueOf(activo).equals(0)){
+            logout();
+            res = "LOGOUT";
+        } else {
+            res = "OK";
+        }
+        return res;
     }
 
     public void setNombre(String nombre) {
@@ -136,10 +142,10 @@ public class EditBean extends GeneralBean {
     }
     
     public String getActivo(){
-        return estado;
+        return activo;
     }
     
-    public void setActivo(){
-        this.estado=estado;
+    public void setActivo(String activo){
+        this.activo=activo;
     }
 }

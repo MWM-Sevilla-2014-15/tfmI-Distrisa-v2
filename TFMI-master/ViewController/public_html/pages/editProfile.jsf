@@ -37,7 +37,11 @@
                     <h:inputText id="email" value="#{editBean.email}" title="Email" required="true"
                                  requiredMessage="#{msgs.errorRequiredField}"/>
                                  <h:message for="email" style="color:red;"/>
-                    
+                    <h:outputLabel value="#{msgs.estado}" for="name"/>
+                    <h:selectOneRadio value="#{editBean.activo}" required="true">
+                        <f:selectItem itemValue="1" itemLabel="#{msgs.si}"/>
+                        <f:selectItem itemValue="0" itemLabel="#{msgs.no}"/>
+                    </h:selectOneRadio>
                     </h:panelGrid>
                     <br/>
                     <h5>
@@ -72,11 +76,3 @@
         </ui:composition>
     </h:body>
 </html>
-
-<!-- 
-<h:outputLabel value="#{msgs.estado}" for="estate"/>
-                    <h:selectOneRadio value="#{editBean.estado}" required="true">
-                        <f:selectItem itemValue="1" itemLabel="#{msgs.si}"/>
-                        <f:selectItem itemValue="0" itemLabel="#{msgs.no}"/>
-                    </h:selectOneRadio>
--->

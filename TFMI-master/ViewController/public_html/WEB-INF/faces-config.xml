@@ -86,6 +86,10 @@
             <from-outcome>ERROR</from-outcome>
             <to-view-id>/pages/manageProducts.jsf</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>REMOVE</from-outcome>
+            <to-view-id>/pages/manageProducts.jsf</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/clientZone.jsf</from-view-id>
@@ -133,6 +137,10 @@
         <navigation-case>
             <from-outcome>ERROR</from-outcome>
             <to-view-id>/pages/editProfile.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>LOGOUT</from-outcome>
+            <to-view-id>/pages/index.jsf</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>UNREGISTER</from-outcome>

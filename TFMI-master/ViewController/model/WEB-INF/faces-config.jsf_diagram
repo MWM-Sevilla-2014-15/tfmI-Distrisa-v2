@@ -146,7 +146,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T44,-16.63031,-213.8229,-9.63031,-213.8229,T56</property>
+         name="sdm:polyPoints">T44,-16.630302,-213.8229,-9.630302,-213.8229,T56</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -158,7 +158,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">B50,-13.13031,-105.82291,-12.0,45.734375,T50</property>
+         name="sdm:polyPoints">B50,-13.130302,-105.82291,-12.0,45.734375,T50</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -230,7 +230,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">B44,-15.5,156.51859,77.63034,327.8078,T44</property>
+         name="sdm:polyPoints">B44,-15.5,156.51859,77.63033,327.8078,T44</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -314,7 +314,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T56,76.62891,500.88498,77.63034,435.8078,B44</property>
+         name="sdm:polyPoints">T56,76.62891,500.88498,77.63033,435.8078,B44</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -338,7 +338,7 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">T39,374.73938,328.6254,381.73938,328.6254,T50</property>
+         name="sdm:polyPoints">T39,374.7394,328.6254,381.7394,328.6254,T50</property>
    </NavigationCase>
    <NavigationCase
       islink="true"
@@ -409,6 +409,18 @@
       <property
          name="description">Navigation Case</property>
       <property
-         name="sdm:polyPoints">L50,40.13034,381.8078,-129.67212,381.4654,R50</property>
+         name="sdm:polyPoints">L50,40.130333,381.8078,-129.67212,381.4654,R50</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase48"
+      from="Page19"
+      to="Page19">
+      <property
+         name="fromOutcome">REMOVE</property>
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="sdm:polyPoints">B44,671.0308,360.52023,678.0308,360.52023,B56</property>
    </NavigationCase>
 </SDM>
