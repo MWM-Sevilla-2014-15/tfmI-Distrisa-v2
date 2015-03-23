@@ -12,20 +12,22 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class TrolleyBean extends GeneralBean{
-    
+public class TrolleyBean extends GeneralBean {
+
     @EJB
     private CarrotfmiBeanLocal carroBean;
     private Usuariotfmi usuario;
     private List<Carrotfmi> carros;
+
     public TrolleyBean() {
         super();
         usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
     }
+
     public List<Carrotfmi> getCarro() {
         return carros;
     }
-            
+
     public List<Carrotfmi> getCarros() {
         return carroBean.getCarrotfmiFindAll();
     }

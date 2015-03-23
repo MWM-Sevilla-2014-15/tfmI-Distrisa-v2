@@ -19,4 +19,6 @@ public interface ProductotfmiBeanLocal {
     List<Productotfmi> getProductotfmiFindByCategory(String categoria);
 
     List<Productotfmi> getProductotfmiFindByName(String nombre);
+    
+    List<Productotfmi> getProductotfmiFindByActivo(int activo);
 }

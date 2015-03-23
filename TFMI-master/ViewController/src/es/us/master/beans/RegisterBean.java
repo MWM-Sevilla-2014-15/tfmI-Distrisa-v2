@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @RequestScoped
-public class RegisterBean extends GeneralBean{
+public class RegisterBean extends GeneralBean {
 
     @EJB
     private UsuariotfmiBeanLocal usuarioBean;

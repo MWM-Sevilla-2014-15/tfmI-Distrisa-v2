@@ -18,119 +18,128 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @RequestScoped
-public class EditBean extends GeneralBean{
-        
-        private String nombre;
-        private String apellidos;
-        private String username;
-        private String estado;
-        private String email;
-        private String password;
-        private String repassword;
+public class EditBean extends GeneralBean {
 
-        @EJB
-        private UsuariotfmiBeanLocal usuarioBean;
-        private Usuariotfmi usuario;
+    private String nombre;
+    private String apellidos;
+    private String estado;
+    private String email;
+    private String password;
+    private String repassword;
 
-        public EditBean() {
-            context = FacesContext.getCurrentInstance();
-            usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
-        }
+    @EJB
+    private UsuariotfmiBeanLocal usuarioBean;
+    private Usuariotfmi usuario;
 
-        @PostConstruct
-        public void initIt() {
-            if (usuario == null) {
+    public EditBean() {
+        context = FacesContext.getCurrentInstance();
+        usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
+    }
+
+    @PostConstruct
+    public void initIt() {
+        if (usuario == null) {
 
 
-                ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-                try {
-                    context.redirect(context.getRequestContextPath() + "/faces/index.jsf");
-                } catch (IOException e) {
-                    System.out.println("Error");
-                }
-            } else {
-                nombre = usuario.getNombre();
-                apellidos = usuario.getApellidos();
-                estado = String.valueOf(usuario.getActivo());
-                email = usuario.getEmail();
-                username = usuario.getUsername();
-
+            ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+            try {
+                context.redirect(context.getRequestContextPath() + "/faces/index.jsf");
+            } catch (IOException e) {
+                System.out.println("Error");
             }
+        } else {
+            nombre = usuario.getNombre();
+            apellidos = usuario.getApellidos();
+            estado = String.valueOf(usuario.getActivo());
+            email = usuario.getEmail();
 
         }
 
-        public String edit() {
-            if (!password.isEmpty() || !repassword.isEmpty()) {
-                if (!password.equals(repassword)) {
+    }
 
-                    context.addMessage(null,
-                                       new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No coinciden las contrase�as"));
+    public String edit() {
+        if (!password.isEmpty() || !repassword.isEmpty()) {
+            if (!password.equals(repassword)) {
 
-                } else {
-                    usuario.setNombre(nombre);
-                    usuario.setApellidos(apellidos);
-                    usuario.setEmail(email);
-                    usuario.setPassword(password);
-                    usuario.setFechaact(new Date());
-                    usuarioBean.mergeUsuariotfmi(usuario);
-                }
+                context.addMessage(null,
+                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
+                                                    "No coinciden las contrase�as"));
+
             } else {
                 usuario.setNombre(nombre);
                 usuario.setApellidos(apellidos);
                 usuario.setEmail(email);
+                usuario.setPassword(password);
+                if (Integer.valueOf(estado).equals(1)) {
+                    usuario.setActivo(1);
+                } else if (Integer.valueOf(estado).equals(0)) {
+                    usuario.setActivo(0);
+                }
                 usuario.setFechaact(new Date());
                 usuarioBean.mergeUsuariotfmi(usuario);
             }
-            return "OK";
-
+        } else {
+            usuario.setNombre(nombre);
+            usuario.setApellidos(apellidos);
+            usuario.setEmail(email);
+            if (Integer.valueOf(estado).equals(1)) {
+                usuario.setActivo(1);
+            } else if (Integer.valueOf(estado).equals(0)) {
+                usuario.setActivo(0);
+            }
+            usuario.setFechaact(new Date());
+            usuarioBean.mergeUsuariotfmi(usuario);
         }
+        return "OK";
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    }
 
-        public String getNombre() {
-            return nombre;
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-        public void setApellidos(String apellidos) {
-            this.apellidos = apellidos;
-        }
+    public String getNombre() {
+        return nombre;
+    }
 
-        public String getApellidos() {
-            return apellidos;
-        }
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
 
 
-        public void setEmail(String email) {
-            this.email = email;
-        }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public String getEmail() {
-            return email;
-        }
+    public String getEmail() {
+        return email;
+    }
 
-        public void setPassword(String password) {
-            this.password = password;
-        }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
 
-        public void setUsername(String username) {
-            this.username = username;
-        }
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
+    }
 
-        public String getUsername() {
-            return username;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setRepassword(String repassword) {
-            this.repassword = repassword;
-        }
-
-        public String getRepassword() {
-            return repassword;
-        }
+    public String getRepassword() {
+        return repassword;
+    }
+    
+    public String getActivo(){
+        return estado;
+    }
+    
+    public void setActivo(){
+        this.estado=estado;
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
     </h:head>
@@ -25,31 +25,32 @@
                          
                         <h:form id="formulario" styleClass="form_settings">
                             <h:panelGrid columns="3">
-                                <h:outputLabel value="#{msgs.name} :" for="name"/>
-                                <h:inputText id="name" value="#{editBean.nombre}" title="name" required="true"
-                                             requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="name" style="color:red;"/>
-                                <h:outputLabel value="#{msgs.surname} :" for="surname"/>
-                                <h:inputText id="surname" value="#{editBean.apellidos}" title="Surname" required="true"
-                                             requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="surname" style="color:red;"/>
-                                <h:outputLabel value="#{msgs.email} :" for="email"/>
-                                <h:inputText id="email" value="#{editBean.email}" title="Email" required="true"
-                                             requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="email" style="color:red;"/>
-                                <h:outputLabel value="#{msgs.user} :" for="user"/>
-                                <h:inputText id="user" value="#{editBean.username}" title="User" required="true"
-                                             requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="user" style="color:red;"/>
-                                <h:outputLabel value="#{msgs.pass} :" for="password"/>
-                                <h:inputSecret id="password" value="#{editBean.password}" title="Password"
-                                               required="true" requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="password" style="color:red;"/>
-                                <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
-                                <h:inputSecret id="repassword" value="#{editBean.repassword}" title="RePassword"
-                                               required="true" requiredMessage="#{msgs.errorRequiredField}"/>
-                                <h:message for="repassword" style="color:red;"/>
-                            </h:panelGrid>
+                    <h:outputLabel value="#{msgs.name} :" for="name"/>
+                    <h:inputText id="name" value="#{editBean.nombre}" title="name" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="name" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.surname} :" for="surname"/>
+                    <h:inputText id="surname" value="#{editBean.apellidos}" title="Surname" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="surname" style="color:red;"/>
+                    <h:outputLabel value="#{msgs.email} :" for="email"/>
+                    <h:inputText id="email" value="#{editBean.email}" title="Email" required="true"
+                                 requiredMessage="#{msgs.errorRequiredField}"/>
+                                 <h:message for="email" style="color:red;"/>
+                    
+                    </h:panelGrid>
+                    <br/>
+                    <h5>
+                            <h:outputText value="#{msgs.modpass}"/>
+                    </h5>
+                    <br/>
+                    <h:panelGrid columns="2">                  
+                        <h:outputLabel value="#{msgs.pass} :" for="password"/>
+                        <h:inputSecret id="password" value="#{editBean.password}" title="Password" />
+                                
+                        <h:outputLabel value="#{msgs.repass} :" for="repassword"/>
+                        <h:inputSecret id="repassword" value="#{editBean.repassword}" title="RePassword" />
+                    </h:panelGrid>
                             <table>
                                 <tr>
                                     <td style="padding-top: 20px">
@@ -71,3 +72,11 @@
         </ui:composition>
     </h:body>
 </html>
+
+<!-- 
+<h:outputLabel value="#{msgs.estado}" for="estate"/>
+                    <h:selectOneRadio value="#{editBean.estado}" required="true">
+                        <f:selectItem itemValue="1" itemLabel="#{msgs.si}"/>
+                        <f:selectItem itemValue="0" itemLabel="#{msgs.no}"/>
+                    </h:selectOneRadio>
+-->

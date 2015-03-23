@@ -29,7 +29,8 @@ import javax.persistence.Transient;
 @Entity
 @NamedQueries({ @NamedQuery(name = "Productotfmi.findAll", query = "select o from Productotfmi o"), 
                 @NamedQuery(name = "Productotfmi.findByCategory", query = "select o from Productotfmi o where o.categoria=:c"),
-                @NamedQuery(name = "Productotfmi.findByName", query = "select o from Productotfmi o where o.nombre=:n")
+                @NamedQuery(name = "Productotfmi.findByName", query = "select o from Productotfmi o where o.nombre=:n"), 
+                @NamedQuery(name = "Productotfmi.findByActivo", query = "select o from Productotfmi o where o.activo=:a")
             })
 @SequenceGenerator(name = "Productotfmi_Id_Seq_Gen", sequenceName = "PRODUCTOTFMI_ID_SEQ_GEN", allocationSize = 50,
                    initialValue = 50)

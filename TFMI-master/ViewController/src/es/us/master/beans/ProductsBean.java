@@ -16,55 +16,60 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class ProductsBean extends GeneralBean{
-    
-        private String nombre, descripcion, categoria;
-        private Integer precio;
-        private Date fechaalt, fechaact;
-    
-        @EJB
-        private ProductotfmiBeanLocal productoBean;
-        private List<Productotfmi> productos;
-        public ProductsBean() {
-            super();
-        }
-        
-        @PostConstruct
-        public void initIt() {
-            setProductos(productoBean.getProductotfmiFindAll());
-        }
-        
-        public List<Productotfmi> getProductos(){
-            return productos;
-        }
-                
-        public void setProductos(List<Productotfmi> productos) {
-            this.productos=productos;
-        }
-        
-        public String register() {
-            String res;
-            
-            Productotfmi producto = new Productotfmi();
-            producto.setNombre(nombre);
-            producto.setDescripcion(descripcion);
-            producto.setCategoria(categoria);
-            producto.setPrecio(precio);
-            producto.setFechaact(new Date());
-            producto.setFechaalt(new Date());         
-            
-            Productotfmi p = productoBean.persistProductotfmi(producto);
-            if ( p == null ) {
-                context.addMessage( null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Error", "No se ha podido crear la producto."));
-                res = "ERROR";
-            } else {
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "OK", "La producto se ha creado con exito."));
-                res="OK";
+public class ProductsBean extends GeneralBean {
+
+    private String nombre, descripcion, categoria;
+    private Integer precio;
+    private Date fechaalt, fechaact;
+
+    @EJB
+    private ProductotfmiBeanLocal productoBean;
+    private List<Productotfmi> productos;
+
+    public ProductsBean() {
+        super();
+    }
+
+    @PostConstruct
+    public void initIt() {
+        setProductos(productoBean.getProductotfmiFindByActivo(1));
+    }
+
+    public List<Productotfmi> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Productotfmi> productos) {
+        this.productos = productos;
+    }
+
+    public String register() {
+        String res;
+
+        Productotfmi producto = new Productotfmi();
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setCategoria(categoria);
+        producto.setPrecio(precio);
+        producto.setFechaact(new Date());
+        producto.setFechaalt(new Date());
+
+        Productotfmi p = productoBean.persistProductotfmi(producto);
+        if (p == null) {
+            context.addMessage(null,
+                               new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
+                                                "No se ha podido crear la producto."));
+            res = "ERROR";
+        } else {
+            context.addMessage(null,
+                               new FacesMessage(FacesMessage.SEVERITY_INFO, "OK",
+                                                "La producto se ha creado con exito."));
+            res = "OK";
         }
         return res;
     }
-        
-    public void editAction(Productotfmi producto){
+
+    public void editAction(Productotfmi producto) {
         productos.get(productos.indexOf(producto)).setEditable(true);
     }
 
@@ -72,12 +77,12 @@ public class ProductsBean extends GeneralBean{
         productos.get(productos.indexOf(producto)).setEditable(false);
         productoBean.mergeProductotfmi(producto);
     }
-    
-    public void remove(Productotfmi producto){
-        productos.get(productos.indexOf(producto));
-        productoBean.removeProductotfmi(producto);
+
+    public void remove(Productotfmi producto) {
+        productos.get(productos.indexOf(producto)).setActivo(0);
+        productoBean.mergeProductotfmi(producto);
     }
-    
+
     public String getCategoria() {
         return categoria;
     }
@@ -85,7 +90,7 @@ public class ProductsBean extends GeneralBean{
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -101,7 +106,7 @@ public class ProductsBean extends GeneralBean{
     public void setPrecio(Integer precio) {
         this.precio = precio;
     }
-    
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -109,7 +114,7 @@ public class ProductsBean extends GeneralBean{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     public Date getFechaact() {
         return fechaact;
     }

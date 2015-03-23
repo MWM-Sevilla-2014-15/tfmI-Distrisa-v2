@@ -59,4 +59,12 @@ public class ProductotfmiBean implements ProductotfmiBeanLocal {
         query.setParameter("n", nombre);
         return query.getResultList();
     }
+    
+    @Override
+    public List<Productotfmi> getProductotfmiFindByActivo(int activo){
+        activo = 1;
+        Query query = em.createNamedQuery("Productotfmi.findByActivo", Productotfmi.class);
+        query.setParameter("a", activo);
+        return query.getResultList();
+    }
 }
