@@ -26,7 +26,7 @@ public class LoginBean extends GeneralBean {
     }
 
     public String login() {
-        String res;
+        String res = "";
         String requestUser = usuario.getUsername();
         String requestPass = usuario.getPassword();
         String adminUser = prop.getProp("loginAdmin");
@@ -45,9 +45,15 @@ public class LoginBean extends GeneralBean {
                                                     "No existe un usuario con esa contrase�a"));
                 res = "ERROR";
             } else {
-                res = "CLIENT";
-                context.getExternalContext().getSessionMap().put("usuario", u);
-                context.getExternalContext().getSessionMap().put("pageBack", "clientZone.jsf");
+                if(Integer.valueOf(u.getActivo()).equals(1)){
+                    res = "CLIENT";
+                    context.getExternalContext().getSessionMap().put("usuario", u);
+                    context.getExternalContext().getSessionMap().put("pageBack", "clientZone.jsf");
+                } else {
+                    context.addMessage(null,
+                                       new FacesMessage(FacesMessage.SEVERITY_INFO, "Error,",
+                                                        " lo sentimos pero ese usuario esta dado de baja"));
+                }
             }
         }
         return res;

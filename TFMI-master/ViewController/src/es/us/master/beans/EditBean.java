@@ -50,7 +50,7 @@ public class EditBean extends GeneralBean {
         } else {
             nombre = usuario.getNombre();
             apellidos = usuario.getApellidos();
-            activo = String.valueOf(usuario.getActivo());
+            //activo = String.valueOf(usuario.getActivo());
             email = usuario.getEmail();
 
         }
@@ -71,9 +71,7 @@ public class EditBean extends GeneralBean {
                 usuario.setApellidos(apellidos);
                 usuario.setEmail(email);
                 usuario.setPassword(password);
-                if (Integer.valueOf(activo).equals(1)) {
-                    usuario.setActivo(1);
-                } else if (Integer.valueOf(activo).equals(0)) {
+                if (Integer.valueOf(activo).equals(0)) {
                     usuario.setActivo(0);
                 }
                 usuario.setFechaact(new Date());
@@ -83,9 +81,7 @@ public class EditBean extends GeneralBean {
             usuario.setNombre(nombre);
             usuario.setApellidos(apellidos);
             usuario.setEmail(email);
-            if (Integer.valueOf(activo).equals(1)) {
-                usuario.setActivo(1);
-            } else if (Integer.valueOf(activo).equals(0)) {
+            if (Integer.valueOf(activo).equals(0)) {
                 usuario.setActivo(0);
             }
             usuario.setFechaact(new Date());
