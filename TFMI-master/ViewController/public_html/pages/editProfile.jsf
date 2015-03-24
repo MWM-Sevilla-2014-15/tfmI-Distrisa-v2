@@ -39,7 +39,7 @@
                                  <h:message for="email" style="color:red;"/>
                     <h:outputLabel value="#{msgs.estado}" for="name"/>
                     <h:selectOneRadio value="#{editBean.activo}" required="true">
-                        <f:selectItem itemValue="0" itemLabel="#{msgs.si}"/>
+                        <f:selectItem itemValue="0" />
                     </h:selectOneRadio>
                     </h:panelGrid>
                     <p>
