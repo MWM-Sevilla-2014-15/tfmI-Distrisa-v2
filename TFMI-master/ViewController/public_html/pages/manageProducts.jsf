@@ -101,21 +101,11 @@
                                         </f:facet>
                                             <h:commandButton value="#{(!item.editable) ? 'Editar' : 'Guardar'}"
                                                          action="#{productsBean.editAction(item)}"
-                                                         rendered="#{(!item.editable)}" >
-                                                         <f:ajax render=":refresh:wrapper"/>   
+                                                         rendered="#{(!item.editable)}" >                                                            
                                             </h:commandButton>
                                             <h:commandButton value="#{(!item.editable) ? 'Editar' : 'Guardar'}"
-                                                         action="#{productsBean.save(item)}" rendered="#{(item.editable)}" >
-                                                         <f:ajax execute="@form" render=":refresh:wrapper" />
-                                            </h:commandButton>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Guardar"/>
-                                        </f:facet>
-                                            <h:commandButton value="#{(!item.editable) ? 'Guardar' : 'Guardar'}"
-                                                         action="#{productsBean.edit(item)}"  >
-                                                         <f:ajax execute="@form" render=":refresh:wrapper" />
+                                                         action="#{productsBean.save(item)}" rendered="#{(item.editable)}">
+                                                         
                                             </h:commandButton>
                                     </h:column>
                                     <h:column>
@@ -123,7 +113,7 @@
                                             <h:outputText value="Eliminar"/>
                                         </f:facet>
                                         <h:commandButton value="Eliminar" action="#{productsBean.remove(item)}" >
-                                            <f:ajax execute="@form" render=":refresh:wrapper" />
+                                            
                                         </h:commandButton>
                                     </h:column>
                                 </h:dataTable>

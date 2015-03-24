@@ -41,8 +41,8 @@ public class LoginBean extends GeneralBean {
             Usuariotfmi u = usuarioBean.getUsuariotfmiUsernamePassword(requestUser, requestPass);
             if (u == null) {
                 context.addMessage(null,
-                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
-                                                    "No existe un usuario con esa contrase�a"));
+                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error,",
+                                                    " no existe un usuario con esas credenciales"));
                 res = "ERROR";
             } else {
                 if(Integer.valueOf(u.getActivo()).equals(1)){
