@@ -59,10 +59,15 @@
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
+         <string v="ADFbc-Modeling"/>
          <string v="Database"/>
+         <string v="Database-Modeling"/>
          <string v="EJB"/>
+         <string v="EJB-Modeling"/>
          <string v="Java"/>
+         <string v="Java-Modeling"/>
          <string v="TopLink"/>
+         <string v="UML"/>
          <string v="XML"/>
       </list>
    </hash>

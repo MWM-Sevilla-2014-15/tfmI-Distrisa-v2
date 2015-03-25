@@ -45,16 +45,6 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ID_PRODUCTO</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
-          <typeName>INTEGER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
       <name>SUBTOTAL</name>
       <dataTypeUsage>
         <attributeValues>
