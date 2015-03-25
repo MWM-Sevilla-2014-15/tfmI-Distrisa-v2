@@ -63,6 +63,7 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <h:messages id="nuevo" style="color:red" globalOnly="true" showDetail="true"/>
                             </h:form>
                         </div>
                     </div>

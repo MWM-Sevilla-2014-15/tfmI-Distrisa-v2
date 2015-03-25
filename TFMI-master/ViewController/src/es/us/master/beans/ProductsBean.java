@@ -69,14 +69,27 @@ public class ProductsBean extends GeneralBean {
         return res;
     }
 
-    public void editAction(Productotfmi producto) {
+    public String editAction(Productotfmi producto) {
         productos.get(productos.indexOf(producto)).setEditable(true);
+        return null;
     }
 
-    public void save(Productotfmi producto) {
+    public String save(Productotfmi producto) {
         productos.get(productos.indexOf(producto)).setEditable(false);
         productoBean.mergeProductotfmi(producto);
+        return null;
     }
+    
+    /*public String saveItem() {
+        for(Productotfmi producto : productos){
+            producto.setEditable(false);
+            producto.setCategoria();
+            producto.setDescripcion();
+            producto.setPrecio();
+            productoBean.mergeProductotfmi(producto);
+        }
+        return null;
+    }*/
 
     public String remove(Productotfmi producto) {
         String res;

@@ -31,6 +31,7 @@ public class ProductotfmiBean implements ProductotfmiBeanLocal {
     }
 
     public Productotfmi mergeProductotfmi(Productotfmi productotfmi) {
+        Productotfmi producto = em.find(Productotfmi.class, productotfmi.getCodProducto());
         return em.merge(productotfmi);
     }
 
