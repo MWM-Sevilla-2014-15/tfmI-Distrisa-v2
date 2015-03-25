@@ -59,17 +59,26 @@ public class ShopBean extends GeneralBean {
     public String buy1() {
         Listacompratfmi lista;
         Carrotfmi carro;
+        double iva = Double.parseDouble(prop.getProp("iva"));
         Double total=0.0;
+
         for (ListaSelected dataItem : listasSelected) {
             if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
                 lista = new Listacompratfmi(dataItem.getLista().getCantidad(), dataItem.getLista().getProductotfmi());
                 listaBean.persistListacompratfmi(lista);
-                total+=(dataItem.getLista().getCantidad()*dataItem.getLista().getProductotfmi().getPrecio());
+                total+=(dataItem.getLista().getCantidad()*dataItem.getLista().getProductotfmi().getPrecio()*iva);
             }
         }
-        carro = new Carrotfmi ((Usuariotfmi)context.getExternalContext().getSessionMap().get("usuario"),
-                               total);
+        carro = new Carrotfmi(((Usuariotfmi)context.getExternalContext().getSessionMap().get("usuario")),
+                              total);
+        carro.setTotal(total);
         carroBean.persistCarrotfmi(carro);
+        for (ListaSelected dataItem : listasSelected) {
+            if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
+                listaBean.unpdateCodCarro(carro);
+            }
+        }
+
         return "SHOP2";
     }
 

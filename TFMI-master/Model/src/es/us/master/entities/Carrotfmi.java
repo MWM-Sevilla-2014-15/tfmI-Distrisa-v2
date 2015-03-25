@@ -2,6 +2,7 @@ package es.us.master.entities;
 
 import java.io.Serializable;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,8 +44,8 @@ public class Carrotfmi implements Serializable {
     @ManyToOne
     @JoinColumn(name = "COD_USUARIO")
     private Usuariotfmi usuariotfmi;
-    @OneToMany(mappedBy = "carrotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    private List<Listacompratfmi> listafmList1;
+    @OneToMany(mappedBy = "carrotfmi", cascade=CascadeType.PERSIST)
+    private List<Listacompratfmi> listafmList1 = new ArrayList<Listacompratfmi>();
 
     public Carrotfmi(Usuariotfmi usuariotfmi, double total) {
         this.usuariotfmi = usuariotfmi;

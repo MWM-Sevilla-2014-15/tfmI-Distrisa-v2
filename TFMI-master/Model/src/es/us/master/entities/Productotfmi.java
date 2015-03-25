@@ -51,7 +51,7 @@ public class Productotfmi implements Serializable {
     private String nombre;
     @Column(nullable = false)
     private double precio;
-    @OneToMany(mappedBy = "productotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "productotfmi", cascade = CascadeType.ALL)
     private List<Listacompratfmi> listacompratfmiList;
     @Transient
     private boolean editable = false;

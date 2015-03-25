@@ -1,5 +1,6 @@
 package es.us.master.beans;
 
+import es.us.master.entities.Carrotfmi;
 import es.us.master.entities.Listacompratfmi;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface ListacompratfmiBeanLocal {
     void removeListacompratfmi(Listacompratfmi listacompratfmi);
 
     List<Listacompratfmi> getListacompratfmiFindAll();
+    
+    int unpdateCodCarro(Carrotfmi carro);
 }

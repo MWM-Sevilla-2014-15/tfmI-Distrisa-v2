@@ -2,10 +2,7 @@ package es.us.master.entities;
 
 import java.io.Serializable;
 
-import java.math.BigDecimal;
-
 import java.util.Date;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,8 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import sun.security.util.BigInt;
 
 /**
  * To create ID generator sequence "USUARIOTFMI_ID_SEQ_GEN":
@@ -59,7 +54,7 @@ public class Usuariotfmi implements Serializable {
     private int rol = 2;
     @Column(nullable = false, length = 20)
     private String username;
-    @OneToMany(mappedBy = "usuariotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @OneToMany(mappedBy = "usuariotfmi", cascade = CascadeType.ALL)
     private List<Carrotfmi> carrotfmiList;
 
     public Usuariotfmi() {
