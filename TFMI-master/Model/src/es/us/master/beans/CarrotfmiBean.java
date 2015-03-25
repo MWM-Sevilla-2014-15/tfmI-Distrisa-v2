@@ -1,8 +1,6 @@
 package es.us.master.beans;
 
 import es.us.master.entities.Carrotfmi;
-
-import es.us.master.entities.Listacompratfmi;
 import es.us.master.entities.Usuariotfmi;
 
 import java.util.List;
@@ -11,12 +9,10 @@ import javax.annotation.Resource;
 
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
-
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -51,20 +47,9 @@ public class CarrotfmiBean implements CarrotfmiBeanLocal {
     }
 
     @Override
-    public List<Carrotfmi> getCarrotfmiFindByOwn(Usuariotfmi usuario){
+    public List<Carrotfmi> getCarrotfmiFindByOwn(Usuariotfmi usuario) {
         Query query = em.createNamedQuery("Carrotfmi.findByOwn", Carrotfmi.class);
         query.setParameter("u", usuario);
         return query.getResultList();
     }
-    
-    @Override
-    public Carrotfmi getCarrotfmiByList(Listacompratfmi lista){
-        try {
-            Query query = em.createNamedQuery("Carrotfmi.findByList", Carrotfmi.class);
-            query.setParameter("l", lista);
-            return (Carrotfmi)query.getSingleResult();
-        } catch (NoResultException e){
-            return null;
-        }            
-    }    
 }

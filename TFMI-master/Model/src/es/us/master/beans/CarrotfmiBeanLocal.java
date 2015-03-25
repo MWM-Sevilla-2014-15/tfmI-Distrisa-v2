@@ -1,7 +1,6 @@
 package es.us.master.beans;
 
 import es.us.master.entities.Carrotfmi;
-import es.us.master.entities.Listacompratfmi;
 import es.us.master.entities.Usuariotfmi;
 
 import java.util.List;
@@ -20,5 +19,4 @@ public interface CarrotfmiBeanLocal {
 
     List<Carrotfmi> getCarrotfmiFindByOwn(Usuariotfmi usuario);
 
-    Carrotfmi getCarrotfmiByList(Listacompratfmi lista);
 }

@@ -8,7 +8,9 @@
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/facelets/plantilla.jsf">
-            <ui:define name="titulo">#{msgs.shop1}</ui:define>
+            <ui:define name="titulo">
+                #{msgs.shop1}
+            </ui:define>
             <ui:define name="cabecera">
                 <ui:include src="/WEB-INF/facelets/cabecera.jsf"/>
             </ui:define>
@@ -16,40 +18,67 @@
                 <ui:include src="/WEB-INF/facelets/menuAuxiliar.jsf"/>
             </ui:define>
             <ui:define name="cuerpo">
-               <h:form>
-                <h1>
-                    <h:outputText value="#{msgs.shop1}"/>
-                </h1>
-            </h:form>
-            <h:form id="formulario" styleClass="form_settings">
-                <h:dataTable value="#{trolleyBean.carros}" var="item" id="carrosList" rows="10">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Codigo carro"/>
-                        </f:facet>
-                        <h:outputText value="#{item.codCarro}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Fecha de compra"/>
-                        </f:facet>
-                        <h:outputText value="#{item.fechacompra}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Total"/>
-                        </f:facet>
-                        <h:outputText value="#{item.total}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Usuario"/>
-                        </f:facet>
-                        <h:outputText value="#{item.usuariotfmi}">
-                        </h:outputText>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
+                <h:form>
+                    <h2>
+                        <h:outputText value="#{msgs.shop1}"/>
+                    </h2>
+                </h:form>
+                <h:form id="formulario" styleClass="form_settings">
+                    <div id="content">
+                        <div class="content_item">
+                            <h3>
+                                <h:outputText value="#{msgs.createList}"/>
+                            </h3>
+                             
+                            <h:dataTable styleClass="tg" value="#{shopBean.listasSelected}" var="item" id="listaList"
+                                         rows="10">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Select"/>
+                                    </f:facet>
+                                    <h:selectBooleanCheckbox value="#{item.selected}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Imagen"/>
+                                    </f:facet>
+                                    <h:graphicImage value="/resources/images/productos/#{item.lista.productotfmi.codProducto}.jpg"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.lista.productotfmi.nombre}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Precio"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.lista.productotfmi.precio}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cantidad"/>
+                                    </f:facet>
+                                    <h:inputText id="cantidad" value="#{item.lista.cantidad}" required="false" maxlength="4" size="3">
+                                        <f:convertNumber integerOnly="true"/>
+                                    </h:inputText>
+                                </h:column>
+                            </h:dataTable>
+                            <table>
+                                <tr>
+                                    <td style="padding-top: 20px">
+                                        <h:commandButton styleClass="submit" value="#{msgs.buttonSend}"
+                                                         action="#{shopBean.buy1}"/>
+                                    </td>
+                                    <td style="padding-top: 20px">
+                                        <h:commandButton styleClass="submit" value="#{msgs.buttonDelete}" type="reset"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </h:form>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

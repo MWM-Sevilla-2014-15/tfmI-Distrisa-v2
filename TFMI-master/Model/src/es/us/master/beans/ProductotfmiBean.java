@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
-
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
@@ -62,7 +61,7 @@ public class ProductotfmiBean implements ProductotfmiBeanLocal {
     
     @Override
     public List<Productotfmi> getProductotfmiFindByActivo(int activo){
-        activo = 1;
+        /*activo = 1;*/
         Query query = em.createNamedQuery("Productotfmi.findByActivo", Productotfmi.class);
         query.setParameter("a", activo);
         return query.getResultList();

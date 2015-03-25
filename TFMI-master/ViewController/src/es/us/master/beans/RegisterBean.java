@@ -7,7 +7,6 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 
 @ManagedBean
 @RequestScoped
@@ -20,7 +19,6 @@ public class RegisterBean extends GeneralBean {
 
     public RegisterBean() {
         usuario = new Usuariotfmi();
-        context = FacesContext.getCurrentInstance();
     }
 
     public Usuariotfmi getUsuario() {

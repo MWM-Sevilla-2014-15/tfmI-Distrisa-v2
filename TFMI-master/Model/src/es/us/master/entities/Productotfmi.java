@@ -2,10 +2,7 @@ package es.us.master.entities;
 
 import java.io.Serializable;
 
-import java.math.BigDecimal;
-
 import java.util.Date;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -53,12 +50,12 @@ public class Productotfmi implements Serializable {
     @Column(nullable = false, length = 20)
     private String nombre;
     @Column(nullable = false)
-    private int precio;
+    private double precio;
     @OneToMany(mappedBy = "productotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private List<Listacompratfmi> listacompratfmiList;
     @Transient
     private boolean editable = false;
-
+    
     public Productotfmi() {
     }
 
@@ -88,10 +85,6 @@ public class Productotfmi implements Serializable {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
-    }
-
-    public int getCodProducto() {
-        return codProducto;
     }
 
     public String getDescripcion() {
@@ -126,13 +119,6 @@ public class Productotfmi implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
 
     public List<Listacompratfmi> getListacompratfmiList() {
         return listacompratfmiList;
@@ -160,5 +146,20 @@ public class Productotfmi implements Serializable {
 
     public boolean isEditable() {
         return editable;
+    }
+    
+    public void setCodProducto(int codProducto) {
+        this.codProducto = codProducto;
+    }
+
+    public long getCodProducto() {
+        return codProducto;
+    }
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public double getPrecio() {
+        return precio;
     }
 }

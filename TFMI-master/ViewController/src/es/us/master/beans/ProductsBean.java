@@ -19,7 +19,7 @@ import javax.faces.bean.RequestScoped;
 public class ProductsBean extends GeneralBean {
 
     private String nombre, descripcion, categoria;
-    private Integer precio;
+    private Double precio;
     private Date fechaalt, fechaact;
 
     @EJB
@@ -101,11 +101,11 @@ public class ProductsBean extends GeneralBean {
         this.nombre = nombre;
     }
 
-    public Integer getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Integer precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 

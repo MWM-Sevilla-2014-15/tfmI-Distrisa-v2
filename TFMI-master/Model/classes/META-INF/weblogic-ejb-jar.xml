@@ -14,8 +14,4 @@
     <ejb-name>ListacompratfmiBean</ejb-name>
     <stateless-session-descriptor/>
   </weblogic-enterprise-bean>
-  <weblogic-enterprise-bean>
-    <ejb-name>CarrotfmiBean</ejb-name>
-    <stateless-session-descriptor/>
-  </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

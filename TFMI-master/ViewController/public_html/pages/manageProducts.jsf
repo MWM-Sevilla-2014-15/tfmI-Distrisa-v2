@@ -34,7 +34,10 @@
                                 <h:message for="descripcion" style="color:red;"/>
                                 <h:outputLabel value="#{msgs.precio} :" for="precio"/>
                                 <h:inputText id="precio" value="#{productsBean.precio}" title="Precio" required="true"
-                                             requiredMessage="#{msgs.errorRequiredField}"/>
+                                             requiredMessage="#{msgs.errorRequiredField}"
+                                             validatorMessage="#{msgs.errorRange}">
+                                    <f:validateDoubleRange minimum="0.1"/>
+                                </h:inputText>
                                 <h:message for="precio" style="color:red;"/>
                                 <h:outputLabel value="#{msgs.categoria} :" for="categoria"/>
                                 <h:selectOneMenu id ="categoria" value="#{productsBean.categoria}">

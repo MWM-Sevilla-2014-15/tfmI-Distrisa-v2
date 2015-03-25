@@ -2,10 +2,10 @@ package es.us.master.entities;
 
 import java.io.Serializable;
 
-import java.math.BigDecimal;
-
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,8 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @NamedQueries({ @NamedQuery(name = "Carrotfmi.findAll", query = "select o from Carrotfmi o"),
-                @NamedQuery(name = "Carrotfmi.findByOwn", query = "select o from Carrotfmi o where o.usuariotfmi=:u"),
-                @NamedQuery(name = "Carrotfmi.findByList", query = "select o from Carrotfmi o where o.listacompratfmi=:l")
+                @NamedQuery(name = "Carrotfmi.findByOwn", query = "select o from Carrotfmi o where o.usuariotfmi=:u")
             })
 @SequenceGenerator(name = "Carrotfmi_Id_Seq_Gen", sequenceName = "CARROTFMI_ID_SEQ_GEN", allocationSize = 50,
                    initialValue = 50)
@@ -35,34 +35,21 @@ public class Carrotfmi implements Serializable {
     @Id
     @Column(name = "COD_CARRO", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Carrotfmi_Id_Seq_Gen")
-    private BigDecimal codCarro;
+    private int codCarro;
     @Temporal(TemporalType.DATE)
-    private Date fechacompra;
-    @Column(nullable = false)
-    private BigDecimal total;
+    private Date fechacompra = new Date();
+    @Column(nullable = true)
+    private double total;
     @ManyToOne
     @JoinColumn(name = "COD_USUARIO")
     private Usuariotfmi usuariotfmi;
-    @ManyToOne
-    @JoinColumn(name = "COD_LISTACOMPRA")
-    private Listacompratfmi listacompratfmi;
+    @OneToMany(mappedBy = "carrotfmi", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<Listacompratfmi> listafmList1;
 
-    public Carrotfmi() {
-    }
-
-    public Carrotfmi(BigDecimal codCarro, Listacompratfmi listacompratfmi, Usuariotfmi usuariotfmi, Date fechacompra,
-                     BigDecimal total) {
-        this.codCarro = codCarro;
-        this.listacompratfmi = listacompratfmi;
+    public Carrotfmi(Usuariotfmi usuariotfmi, double total) {
         this.usuariotfmi = usuariotfmi;
-        this.fechacompra = fechacompra;
         this.total = total;
     }
-
-    public BigDecimal getCodCarro() {
-        return codCarro;
-    }
-
 
     public Date getFechacompra() {
         return fechacompra;
@@ -72,14 +59,7 @@ public class Carrotfmi implements Serializable {
         this.fechacompra = fechacompra;
     }
 
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
-
+    
     public Usuariotfmi getUsuariotfmi() {
         return usuariotfmi;
     }
@@ -88,11 +68,42 @@ public class Carrotfmi implements Serializable {
         this.usuariotfmi = usuariotfmi;
     }
 
-    public Listacompratfmi getListacompratfmi() {
-        return listacompratfmi;
+    public void setCodCarro(int codCarro) {
+        this.codCarro = codCarro;
     }
 
-    public void setListacompratfmi(Listacompratfmi listacompratfmi) {
-        this.listacompratfmi = listacompratfmi;
+    public int getCodCarro() {
+        return codCarro;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setListafmList1(List<Listacompratfmi> listafmList1) {
+        this.listafmList1 = listafmList1;
+    }
+
+    public List<Listacompratfmi> getListafmList1() {
+        return listafmList1;
+    }
+
+    public Carrotfmi() {
+    }
+    
+    public Listacompratfmi addListacompratfmi(Listacompratfmi listacompra) {
+        getListafmList1().add(listacompra);
+        listacompra.setCarrotfmi(this);
+        return listacompra;
+    }
+
+    public Listacompratfmi removeCarrotfmi(Listacompratfmi listacompra) {
+        getListafmList1().remove(listacompra);
+        listacompra.setCarrotfmi(null);
+        return listacompra;
     }
 }
