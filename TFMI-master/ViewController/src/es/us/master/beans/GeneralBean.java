@@ -111,5 +111,9 @@ public class GeneralBean {
     public String goToShowTrolley() {
         return "TROLLEY";
     }
+    
+    public String goToShowTrolleyAdmin(){
+        return "TROLLEYADMIN";
+    }
 
 }

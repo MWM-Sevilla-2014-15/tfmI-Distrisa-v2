@@ -21,35 +21,43 @@
                     <h:outputText value="#{msgs.shop2}"/>
                 </h1>
             </h:form>
-            <h:form id="formulario" styleClass="form_settings">
-                <h:dataTable value="#{trolleyBean.carros}" var="item" id="carrosList" rows="10">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Codigo carro"/>
-                        </f:facet>
-                        <h:outputText value="#{item.codCarro}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Fecha de compra"/>
-                        </f:facet>
-                        <h:outputText value="#{item.fechacompra}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Total"/>
-                        </f:facet>
-                        <h:outputText value="#{item.total}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Usuario"/>
-                        </f:facet>
-                        <h:outputText value="#{item.usuariotfmi}">
-                        </h:outputText>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
+            <div id="content">
+                    <div class="content_item">
+                        <h2>
+                             <h:outputText value="#{msgs.showcarros}"/>
+                        </h2>
+                        <h:form>
+                            <h:dataTable styleClass="tg" value="#{trolleyBean.carros}" var="item" id="carrosList" rows="10">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Codigo carro"/>
+                                     </f:facet>
+                                        <h:outputText value="#{item.codCarro}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Fecha de compra"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fechacompra.date}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Total"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.total}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Usuario"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.usuariotfmi.username}">
+                                    </h:outputText>
+                                </h:column>
+                            </h:dataTable>
+                            <h:messages id="nuevo" style="color:orange" globalOnly="true" showDetail="true"/>
+                        </h:form>
+                    </div>
+                </div>
             </ui:define>
             <ui:define name="pie">
                 <ui:include src="/WEB-INF/facelets/pie.jsf"/>

@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 
 import javax.ejb.EJB;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -61,25 +62,41 @@ public class ShopBean extends GeneralBean {
         Carrotfmi carro;
         double iva = Double.parseDouble(prop.getProp("iva"));
         Double total=0.0;
-
-        for (ListaSelected dataItem : listasSelected) {
-            if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
-                lista = new Listacompratfmi(dataItem.getLista().getCantidad(), dataItem.getLista().getProductotfmi());
-                listaBean.persistListacompratfmi(lista);
-                total+=(dataItem.getLista().getCantidad()*dataItem.getLista().getProductotfmi().getPrecio()*iva);
+        
+        int tamaño = listasSelected.size();
+        int contador = 0;
+        
+        for(ListaSelected dItem : listasSelected) {
+            if(dItem.getLista().getCantidad()==0){
+                contador++;
             }
         }
-        carro = new Carrotfmi(((Usuariotfmi)context.getExternalContext().getSessionMap().get("usuario")),
-                              total);
-        carro.setTotal(total);
-        carroBean.persistCarrotfmi(carro);
-        for (ListaSelected dataItem : listasSelected) {
-            if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
-                listaBean.unpdateCodCarro(carro);
+        
+        if(tamaño!=contador){        
+            for (ListaSelected dataItem : listasSelected) {
+                
+                if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
+                    lista = new Listacompratfmi(dataItem.getLista().getCantidad(), dataItem.getLista().getProductotfmi());
+                    listaBean.persistListacompratfmi(lista);
+                    total+=(dataItem.getLista().getCantidad()*dataItem.getLista().getProductotfmi().getPrecio()*iva);
+                }
             }
+            carro = new Carrotfmi(((Usuariotfmi)context.getExternalContext().getSessionMap().get("usuario")),
+                                  total);
+            carro.setTotal(total);
+            carroBean.persistCarrotfmi(carro);
+            for (ListaSelected dataItem : listasSelected) {
+                if (dataItem.isSelected() && dataItem.getLista().getCantidad() > 0) {
+                    listaBean.unpdateCodCarro(carro);
+                }
+            }
+            return "SHOP2";
+        } else {
+            context.addMessage(null,
+                               new FacesMessage(FacesMessage.SEVERITY_INFO, "Error, ",
+                                                " seleccione un producto al menos para poder continuar con la compra."));
+            return "SHOP1";
         }
-
-        return "SHOP2";
     }
 
     public List<Productotfmi> getProductos() {

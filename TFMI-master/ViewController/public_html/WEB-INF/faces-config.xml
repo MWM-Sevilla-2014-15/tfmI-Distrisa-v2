@@ -75,6 +75,10 @@
             <from-outcome>TROLLEY</from-outcome>
             <to-view-id>/pages/trolley.jsf</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>TROLLEYADMIN</from-outcome>
+            <to-view-id>/pages/trolleyAdmin.jsf</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/manageProducts.jsf</from-view-id>
@@ -108,6 +112,10 @@
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/shoptrolley1.jsf</from-view-id>
+        <navigation-case>
+            <from-outcome>SHOP1</from-outcome>
+            <to-view-id>/pages/shoptrolley1.jsf</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>SHOP2</from-outcome>
             <to-view-id>/pages/shoptrolley2.jsf</to-view-id>

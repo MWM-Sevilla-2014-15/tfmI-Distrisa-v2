@@ -44,6 +44,7 @@ public class LoginBean extends GeneralBean {
                                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Error,",
                                                     " no existe un usuario con esas credenciales"));
                 res = "ERROR";
+                
             } else {
                 if(Integer.valueOf(u.getActivo()).equals(1)){
                     res = "CLIENT";
