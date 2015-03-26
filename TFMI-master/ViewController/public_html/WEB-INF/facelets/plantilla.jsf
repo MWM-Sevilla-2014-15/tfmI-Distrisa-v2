@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" locale="#{beanIdioma.locale}">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <meta http-equiv="content-type" content="text/html;
 charset=UTF-8"/>
@@ -34,3 +35,4 @@ charset=UTF-8"/>
         </div>
     </h:body>
 </html>
+</f:view>

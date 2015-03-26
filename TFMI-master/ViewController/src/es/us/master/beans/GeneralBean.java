@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import java.util.Locale;
 
+import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -50,22 +52,30 @@ public class GeneralBean {
         }
     }
 
-    public void setMiLocale(Locale miLocale) {
+    public Locale getMiLocale() {
+        return miLocale;
+    }
+    
+    public void cambiarLocale(ActionEvent e) {
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        String action = params.get("idioma");
+        miLocale = new Locale(action);
+        FacesContext.getCurrentInstance().getViewRoot().setLocale(miLocale);
+
+    }
+
+    public void setLocale(Locale miLocale) {
         this.miLocale = miLocale;
     }
 
-    public Locale getMiLocale() {
-        return this.miLocale;
-    }
-
-    public void cambiarLocale(ActionEvent e) {
+    /*public void cambiarLocale(ActionEvent e) {
         FacesContext contexto = FacesContext.getCurrentInstance();
         if (e.getComponent().getId().equals("ingles"))
             this.miLocale = new Locale("en");
         else
             this.miLocale = new Locale("es");
         contexto.getViewRoot().setLocale(miLocale);
-    }
+    }*/
 
     public String getLoggedUserName() {
         return loggedUserName;

@@ -36,13 +36,14 @@
                                     <f:facet name="header">
                                         <h:outputText value="Select"/>
                                     </f:facet>
+                                    
                                     <h:selectBooleanCheckbox value="#{item.selected}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Imagen"/>
                                     </f:facet>
-                                    <h:graphicImage value="/resources/images/productos/#{item.lista.productotfmi.codProducto}.jpg"/>
+                                    <h:graphicImage value="/resources/images/productos/#{item.lista.productotfmi.nombre}.jpg" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">
