@@ -12,5 +12,5 @@
 hs_err_pid*
 
 #jdeveloper files
-TFMI-master/.data/
-TFMI-master/Model/classes/.data
+#TFMI-master/.data/
+#TFMI-master/Model/classes/.data
