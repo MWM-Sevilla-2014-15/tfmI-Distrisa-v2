@@ -1,7 +1,6 @@
 package es.us.master.beans;
 
 import es.us.master.entities.Carrotfmi;
-import es.us.master.entities.Usuariotfmi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
