@@ -1,7 +1,6 @@
 package es.us.master.beans;
 
 import es.us.master.entities.Carrotfmi;
-import es.us.master.entities.Usuariotfmi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,31 +12,24 @@ import javax.annotation.PostConstruct;
 
 import javax.ejb.EJB;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class TrolleyBean extends GeneralBean {
-
+public class TrolleyAdminBean extends GeneralBean{
+    
     @EJB
     private CarrotfmiBeanLocal carroBean;
-    private Usuariotfmi usuario;
     private List<Carrotfmi> carros;
 
-    public TrolleyBean() {
+    public TrolleyAdminBean() {
         super();
-        usuario = (Usuariotfmi) context.getExternalContext().getSessionMap().get("usuario");
     }
     
     @PostConstruct
-    public void initIt() {
-        
-        setCarros(carroBean.getCarrotfmiFindByOwn(usuario));        
-        context.addMessage(null,
-                           new FacesMessage(FacesMessage.SEVERITY_INFO, "Felicidades,",
-                                            " su envio se entregara lo mas pronto posible"));
+    public void initIt() {        
+        setCarros(carroBean.getCarrotfmiFindAll());        
     }
 
     public List<Carrotfmi> getCarros() {
@@ -63,6 +55,5 @@ public class TrolleyBean extends GeneralBean {
             }            
         }
         this.carros=carros;
-    }       
-    
+    }
 }

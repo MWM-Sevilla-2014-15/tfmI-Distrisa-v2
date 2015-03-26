@@ -34,6 +34,7 @@ public class RegisterBean extends GeneralBean {
     }
 
     public String register() {
+        String requestUser = usuario.getUsername();
         String res = validate();
         if (!res.equals("ERROR")) {
             Usuariotfmi u = usuarioBean.persistUsuariotfmi(usuario);
@@ -42,7 +43,11 @@ public class RegisterBean extends GeneralBean {
                                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
                                                     "No se ha podido crear el usuario."));
                 res = "ERROR";
-            } else {
+            } else if (u.getUsername().equals(requestUser)){
+                context.addMessage(null,
+                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error, ", " nombre de usuario actualmente en uso. Intentelo de nuevo."));
+                res = "ERROR";
+            }else {
                 context.addMessage(null,
                                    new FacesMessage(FacesMessage.SEVERITY_INFO, "OK", "El usuario ha sido creado."));
             }

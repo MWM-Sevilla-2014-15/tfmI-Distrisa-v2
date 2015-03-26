@@ -76,6 +76,7 @@
                                     </td>
                                 </tr>
                             </table>
+                            <h:messages id="nuevo" style="color:red" globalOnly="true" showDetail="true"/>
                         </div>
                     </div>
                 </h:form>

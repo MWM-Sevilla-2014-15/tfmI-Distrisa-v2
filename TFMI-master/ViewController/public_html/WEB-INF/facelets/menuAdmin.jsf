@@ -19,7 +19,7 @@ charset=windows-1252"></meta>
         </li>
         <li>
             <h:form>
-                <h:commandLink action="#{generalBean.goToShowTrolley}" value="#{msgs.trolley}"/>
+                <h:commandLink action="#{generalBean.goToShowTrolleyAdmin}" value="#{msgs.trolley}"/>
             </h:form>
         </li>
         <li>

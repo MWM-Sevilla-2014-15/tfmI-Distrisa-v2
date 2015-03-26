@@ -23,7 +23,7 @@
                 <h:commandLink styleClass="submit" action="#{generalBean.goBack}" value="Volver"/>
             </h:form>
             <h:form id="formulario" styleClass="form_settings">
-                <h:dataTable styleClass="tg" value="#{trolleyBean.carros}" var="item" id="carrosList" >
+                <h:dataTable styleClass="tg" value="#{trolleyAdminBean.carros}" var="item" id="carrosList" >
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="Codigo carro"/>
@@ -46,7 +46,7 @@
                         <f:facet name="header">
                             <h:outputText value="Usuario"/>
                         </f:facet>
-                        <h:outputText value="#{item.usuariotfmi}">
+                        <h:outputText value="#{item.usuariotfmi.nombre}">
                         </h:outputText>
                     </h:column>
                 </h:dataTable>
