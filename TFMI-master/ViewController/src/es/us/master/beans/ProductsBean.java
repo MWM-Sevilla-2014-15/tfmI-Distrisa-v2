@@ -71,14 +71,15 @@ public class ProductsBean extends GeneralBean {
 
     public String editAction(Productotfmi producto) {
         productos.get(productos.indexOf(producto)).setEditable(true);
-        return null;
+        return "";
     }
 
     public String save(Productotfmi producto) {
         productos.get(productos.indexOf(producto)).setEditable(false);
         productoBean.mergeProductotfmi(producto);
-        return null;
+        return "";
     }
+    
     
     /*public String saveItem() {
         for(Productotfmi producto : productos){

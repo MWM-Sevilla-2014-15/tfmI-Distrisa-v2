@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></meta>
     </h:head>
@@ -62,8 +63,7 @@
                 <div id="content">
                     <div class="content_item">
                         <h:form id="refresh">
-                            <h:panelGroup id="wrapper">
-                                <h:dataTable styleClass="tg" value="#{productsBean.productos}" var="item" id="productosList"
+                            <h:dataTable styleClass="tg" value="#{productsBean.productos}" var="item" id="productosList"
                                              rows="10">
                                     <h:column>
                                         <f:facet name="header">
@@ -120,7 +120,6 @@
                                         </h:commandButton>
                                     </h:column>
                                 </h:dataTable>
-                            </h:panelGroup>
                         </h:form>
                     </div>
                 </div>
@@ -131,3 +130,4 @@
         </ui:composition>
     </h:body>
 </html>
+</f:view>

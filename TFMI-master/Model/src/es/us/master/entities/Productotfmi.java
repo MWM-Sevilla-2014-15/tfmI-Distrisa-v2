@@ -18,6 +18,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 /**
  * To create ID generator sequence "PRODUCTOTFMI_ID_SEQ_GEN":
@@ -37,6 +38,8 @@ public class Productotfmi implements Serializable {
     private int activo = 1;
     @Column(nullable = false, length = 20)
     private String categoria;
+    @Version
+    private Integer version;
     @Id
     @Column(name = "COD_PRODUCTO", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Productotfmi_Id_Seq_Gen")
@@ -118,7 +121,14 @@ public class Productotfmi implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
+    public Integer getVersion() {
+        return version;
+    }
 
     public List<Listacompratfmi> getListacompratfmiList() {
         return listacompratfmiList;
