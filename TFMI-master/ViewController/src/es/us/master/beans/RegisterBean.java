@@ -34,22 +34,28 @@ public class RegisterBean extends GeneralBean {
     }
 
     public String register() {
-        String requestUser = usuario.getUsername();
         String res = validate();
+        
+        Usuariotfmi userExiste = usuarioBean.getUsuarioByName(usuario.getUsername());
         if (!res.equals("ERROR")) {
-            Usuariotfmi u = usuarioBean.persistUsuariotfmi(usuario);
-            if (u == null) {
-                context.addMessage(null,
-                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
-                                                    "No se ha podido crear el usuario."));
-                res = "ERROR";
-            } else if (u.getUsername().equals(requestUser)){
-                context.addMessage(null,
-                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "Error, ", " nombre de usuario actualmente en uso. Intentelo de nuevo."));
-                res = "ERROR";
+            
+            if(userExiste == null){
+            
+                Usuariotfmi u = usuarioBean.persistUsuariotfmi(usuario);
+                if (u == null) {
+                    context.addMessage(null,
+                                       new FacesMessage(FacesMessage.SEVERITY_INFO, "Error",
+                                                        "No se ha podido crear el usuario."));
+                    res = "ERROR";
+                }else {
+                    context.addMessage(null,
+                                       new FacesMessage(FacesMessage.SEVERITY_INFO, "OK", "El usuario ha sido creado."));
+                }
+            
             }else {
-                context.addMessage(null,
-                                   new FacesMessage(FacesMessage.SEVERITY_INFO, "OK", "El usuario ha sido creado."));
+               context.addMessage(null,
+                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Error, ", " nombre de usuario actualmente en uso. Intentelo de nuevo."));
+                 res = "ERROR";
             }
         }
         return res;

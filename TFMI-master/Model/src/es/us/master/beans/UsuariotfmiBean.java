@@ -82,5 +82,16 @@ public class UsuariotfmiBean implements UsuariotfmiBeanLocal {
         query.setParameter( "u", usuario.getUsername());
         updatedRecords = query.executeUpdate();
         return updatedRecords;
-    }    
+    }   
+    
+    @Override
+    public Usuariotfmi getUsuarioByName(String username) {
+        try {
+            Query query = em.createNamedQuery("Usuariotfmi.findByUser", Usuariotfmi.class);
+            query.setParameter("u", username);
+            return (Usuariotfmi) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

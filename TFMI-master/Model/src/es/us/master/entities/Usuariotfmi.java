@@ -24,7 +24,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @NamedQueries({ @NamedQuery(name = "Usuariotfmi.findAll", query = "select o from Usuariotfmi o"), 
-                @NamedQuery (name = "Usuariotfmi.findByUserAndPass", query = "select o from Usuariotfmi o where o.username=:u and o.password=:p")
+                @NamedQuery (name = "Usuariotfmi.findByUserAndPass", query = "select o from Usuariotfmi o where o.username=:u and o.password=:p"),
+                @NamedQuery (name = "Usuariotfmi.findByUser", query = "select o from Usuariotfmi o where o.username=:u")
             })
 @SequenceGenerator(name = "Usuariotfmi_Id_Seq_Gen", sequenceName = "USUARIOTFMI_ID_SEQ_GEN", allocationSize = 50,
                    initialValue = 50)

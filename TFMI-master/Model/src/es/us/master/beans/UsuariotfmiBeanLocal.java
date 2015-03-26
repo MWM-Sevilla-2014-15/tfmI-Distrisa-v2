@@ -21,4 +21,6 @@ public interface UsuariotfmiBeanLocal {
     int updateUsuariotfmi(Usuariotfmi usuario);
             
     int unregisterUsuariotfmi(Usuariotfmi usuario);
+    
+    Usuariotfmi getUsuarioByName(String username);
 }
